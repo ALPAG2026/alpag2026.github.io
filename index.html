@@ -2,865 +2,307 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Como começar no charuto — Guia da ALPAG CIGAR</title>
-<meta name="description" content="Guia prático de charuto: anatomia, origens, como cortar, acender, fumar e guardar. Sem jargão e sem mistério.">
-<meta name="theme-color" content="#15100C">
-<link rel="canonical" href="https://www.alpagltda.com.br/aprender.html">
-
-<meta property="og:type" content="article">
-<meta property="og:locale" content="pt_BR">
-<meta property="og:site_name" content="ALPAG CIGAR">
-<meta property="og:title" content="Como começar no charuto — Guia da ALPAG CIGAR">
-<meta property="og:description" content="Anatomia, origens, corte, fogo, ritmo e guarda. O básico bem explicado.">
-<meta property="og:url" content="https://www.alpagltda.com.br/aprender.html">
-<!-- TROCAR: imagem 1200x630 -->
-<meta property="og:image" content="https://www.alpagltda.com.br/og.jpg">
-<meta name="twitter:card" content="summary_large_image">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALPAG Reservas — hospedagem por diária em Campos Novos, SC</title>
+<meta name="description" content="Estúdios e casa completa no centro de Campos Novos, SC. Locação por diária para empresas (com nota fiscal) e viajantes. Superhost no Airbnb.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Archivo:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+
+<script>
+/* =====================================================================
+   EDITE AQUI — é só isso que você precisa mudar no dia a dia
+   ===================================================================== */
+const CONFIG = {
+  nome: "ALPAG Reservas",
+  cidade: "Campos Novos, SC",
+  endereco: "Rua Tancredo Neves, Centro, Campos Novos - SC", // usado no mapa e no texto de localização
+  whatsapp: "5549998226818",              // só números, com DDI 55 e DDD
+  airbnb: "https://www.airbnb.com.br/users/profile/1545907059866512621",   // seu perfil de anfitrião
+  booking: "",                            // cole aqui o link da Booking (fica oculto se vazio)
+};
+
+// preco: coloque o valor da diária em R$ (ex.: 180). Se deixar null, o site mostra "Consulte valores".
+// foto: caminho da imagem principal de cada imóvel (pasta "fotos/").
+const IMOVEIS = [
+  {
+    nome: "Casa Planejada no Centro",
+    tipo: "Casa inteira",
+    hospedes: 5,
+    quartos: "2 quartos · 1 banheiro",
+    preco: null,
+    airbnb: "https://www.airbnb.com.br/rooms/1622042061950090312",
+    resumo: "Casa nova no coração de Campos Novos, com dois quartos, cozinha completa, garagem coberta e fechadura eletrônica. Check-in totalmente autônomo: o código chega por mensagem antes da chegada.",
+    itens: ["Cama de casal + cama de solteiro", "Cozinha completa com café de cortesia", "Ar-condicionado", "Espaço de trabalho com mesa e luminária", "Garagem coberta e portão eletrônico", "Smart TV e Wi-Fi de alta velocidade", "Secador e ferro de passar", "Aceita pets"],
+    foto: "fotos/casa-cozinha.png",
+  },
+  {
+    nome: "Estúdio 01 no Centro",
+    tipo: "Estúdio",
+    hospedes: 3,
+    quartos: "1 cama queen · 1 banheiro",
+    preco: null,
+    airbnb: "https://www.airbnb.com.br/rooms/1745908216322106180",
+    resumo: "Estúdio elegante e bem localizado no centro, com cama queen, cozinha e estacionamento no local. Uma boa escolha para quem viaja sozinho ou a dois.",
+    itens: ["Cama queen", "Cozinha equipada", "Wi-Fi", "TV", "Estacionamento gratuito", "Aceita pets"],
+    foto: "https://a0.muscache.com/im/pictures/hosting/Hosting-1745908216322106180/original/a1ef8ebb-9105-4dfa-b065-8da36c2d4788.jpeg?im_w=960",
+  },
+  {
+    nome: "Estúdio 02 no Centro",
+    tipo: "Estúdio",
+    hospedes: 4,
+    quartos: "2 camas de solteiro · 1 banheiro",
+    preco: null,
+    airbnb: "https://www.airbnb.com.br/rooms/1545924111350423313",
+    resumo: "Ambiente integrado, silencioso e bem iluminado, próximo ao Colégio Auxiliadora e à Avenida JK. Conveniência, padaria, supermercado e academia a menos de 200 m.",
+    itens: ["2 camas de solteiro", "Cozinha com cafeteira e sanduicheira", "Espaço de trabalho exclusivo", "Wi-Fi de qualidade", "TV com diversos canais", "1 vaga de garagem", "Entrada independente", "Aceita pets"],
+    foto: "fotos/estudio-02-quarto.png",
+  },
+];
+/* ===================================================================== */
+</script>
 
 <style>
-:root{
-  --humo:#15100C;
-  --humo-2:#0D0907;
-  --line-dark:#2E241D;
-  --cedro:#E6D6BE;
-  --line-light:#D2BFA2;
-  --ash:#E9E3D8;
-  --ash-dim:rgba(233,227,216,.72);
-  --ash-faint:rgba(233,227,216,.5);
-  --oro:#C9A15B;
-  --oro-soft:#E0C48C;
-  --oro-faint:rgba(201,161,91,.38);
-  --oro-ink:#8A5C2E;
-  --ink:#1B1410;
-  --ink-2:#3A2C22;
-  --muted:#6B5A4A;
-  --display:"Fraunces",Georgia,"Times New Roman",serif;
-  --sans:"Archivo",system-ui,-apple-system,sans-serif;
-  --mono:"IBM Plex Mono",ui-monospace,monospace;
-  --pad:clamp(20px,5vw,64px);
-  --maxw:1120px;
-  --navh:70px;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{
-  background:var(--humo);color:var(--ash);
-  font-family:var(--sans);font-size:16px;line-height:1.65;
-  -webkit-font-smoothing:antialiased;overflow-x:hidden;
-}
-a{color:inherit;text-decoration:none}
-:focus-visible{outline:2px solid var(--oro);outline-offset:3px;border-radius:2px}
-.wrap{max-width:var(--maxw);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad);width:100%}
-.wrap--tight{max-width:820px}
+  :root {
+    --bg: #F1F3EF;
+    --ink: #1B2621;
+    --ink-soft: #55635C;
+    --pine: #245C43;
+    --pine-deep: #17402E;
+    --brass: #B78B45;
+    --line: #CFD6D0;
+    --white: #FFFFFF;
+    --display: "Fraunces", Georgia, serif;
+    --body: "Manrope", system-ui, sans-serif;
+  }
 
-/* portão */
-.gate{position:fixed;inset:0;z-index:200;background:var(--humo-2);display:flex;align-items:center;justify-content:center;padding:24px}
-.gate[hidden]{display:none}
-.gate__box{max-width:430px;text-align:center}
-.gate__mark{font-family:var(--display);font-size:24px;letter-spacing:.22em;color:var(--oro);padding-left:.22em}
-.gate__q{font-family:var(--display);font-size:clamp(22px,4vw,30px);line-height:1.3;margin-top:24px}
-.gate__note{font-size:14px;color:var(--ash-faint);margin-top:15px;line-height:1.6}
-.gate__btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:30px}
-.gate__deny{display:none;font-size:14.5px;color:var(--ash-dim);margin-top:28px;line-height:1.7}
-.gate.denied .gate__q,.gate.denied .gate__btns,.gate.denied .gate__note{display:none}
-.gate.denied .gate__deny{display:block}
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
-/* botões */
-.btn{
-  font-family:var(--sans);font-size:14px;font-weight:500;padding:14px 28px;
-  border:1px solid transparent;border-radius:1px;display:inline-flex;align-items:center;gap:9px;
-  cursor:pointer;background:none;color:inherit;
-  transition:background .25s ease,color .25s ease,border-color .25s ease,transform .25s ease;
-}
-.btn--gold{background:var(--oro);color:var(--humo-2)}
-.btn--gold:hover{background:var(--oro-soft);transform:translateY(-2px)}
-.btn--ghost{border-color:rgba(233,227,216,.3);color:var(--ash)}
-.btn--ghost:hover{border-color:var(--oro);color:var(--oro-soft);transform:translateY(-2px)}
-.btn--dark{background:var(--ink);color:var(--cedro)}
-.btn--dark:hover{background:var(--humo);transform:translateY(-2px)}
-.btn--line{border-color:var(--line-light);color:var(--ink)}
-.btn--line:hover{border-color:var(--ink);transform:translateY(-2px)}
+  body {
+    font-family: var(--body);
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--brass); outline-offset: 3px; }
 
-/* nav */
-header.nav{position:fixed;top:0;left:0;right:0;z-index:50;border-bottom:1px solid transparent;transition:background .35s ease,border-color .35s ease}
-header.nav.solid{background:rgba(21,16,12,.94);backdrop-filter:blur(10px);border-bottom-color:var(--line-dark)}
-.nav__in{display:flex;align-items:center;justify-content:space-between;height:var(--navh)}
-.brand{font-family:var(--display);font-size:19px;letter-spacing:.2em;color:var(--ash);padding-left:.2em}
-.brand__c{font-style:italic;color:var(--oro);letter-spacing:.12em}
-.nav__links{display:flex;gap:30px;align-items:center}
-.nav__links a{font-size:13.5px;color:var(--ash-faint);transition:color .25s ease}
-.nav__links a:hover{color:var(--oro-soft)}
-@media(max-width:880px){.nav__links{display:none}}
+  .wrap { width: min(1120px, 100% - 2.5rem); margin-inline: auto; }
 
-/* cabeçalho do guia */
-.top{padding:calc(var(--navh) + clamp(56px,9vw,104px)) 0 clamp(50px,7vw,80px);position:relative;overflow:hidden}
-.top::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(110% 70% at 50% -10%,rgba(201,161,91,.12),transparent 60%)}
-.top__in{position:relative;max-width:720px}
-.eyebrow{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--oro)}
-.sec--cedro .eyebrow{color:var(--oro-ink)}
-h1{font-family:var(--display);font-weight:400;font-size:clamp(31px,5.4vw,60px);line-height:1.1;margin-top:18px;letter-spacing:-.018em}
-h1 em{font-style:italic;color:var(--oro-soft)}
-.top__lead{font-family:var(--display);font-size:clamp(17px,2.1vw,21px);line-height:1.55;color:var(--ash-dim);margin-top:26px;max-width:600px}
+  h1, h2, h3 { font-family: var(--display); font-weight: 600; line-height: 1.08; letter-spacing: -0.01em; }
+  h2 { font-size: clamp(1.9rem, 3.4vw, 2.6rem); }
 
-/* índice */
-.toc{display:flex;flex-wrap:wrap;gap:10px;margin-top:38px}
-.toc a{
-  font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
-  padding:9px 15px;border:1px solid var(--line-dark);border-radius:1px;color:var(--ash-faint);
-  transition:border-color .25s ease,color .25s ease;
-}
-.toc a:hover{border-color:var(--oro);color:var(--oro-soft)}
+  /* Cabeçalho */
+  header {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(241,243,239,.92); backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .brand { font-family: var(--display); font-size: 1.35rem; text-decoration: none; }
+  nav a { text-decoration: none; margin-left: 1.5rem; font-weight: 500; color: var(--ink-soft); }
+  nav a:hover { color: var(--ink); }
+  @media (max-width: 640px) { nav a:not(.btn) { display: none; } }
 
-/* seções */
-section{padding:clamp(66px,9vw,110px) 0;scroll-margin-top:calc(var(--navh) + 14px)}
-.sec--cedro{background:var(--cedro);color:var(--ink)}
-h2{font-family:var(--display);font-weight:400;font-size:clamp(25px,3.7vw,39px);line-height:1.16;letter-spacing:-.012em}
-h2 em{font-style:italic;color:var(--oro-soft)}
-.sec--cedro h2 em{color:var(--oro-ink)}
-.rule{width:40px;height:1px;background:var(--oro);margin-top:22px}
-.sec--cedro .rule{background:var(--oro-ink)}
-.sec__head h2{margin-top:16px}
-.lead{font-size:16.5px;margin-top:22px;max-width:620px;color:var(--ash-dim)}
-.sec--cedro .lead{color:var(--muted)}
+  .btn {
+    display: inline-block; padding: .8rem 1.35rem; border-radius: 4px;
+    background: var(--pine); color: var(--white); text-decoration: none;
+    font-weight: 700; border: 0; cursor: pointer;
+  }
+  .btn:hover { background: var(--pine-deep); }
+  .btn.ghost { background: transparent; color: var(--pine); border: 1.5px solid var(--pine); }
+  .btn.ghost:hover { background: rgba(36,92,67,.08); }
+  header nav .btn { padding: .55rem 1rem; margin-left: 1.5rem; }
 
-.prose{max-width:660px;margin-top:34px}
-.prose p{font-size:16.5px;line-height:1.8;color:var(--ash-dim);margin-bottom:20px}
-.sec--cedro .prose p{color:var(--ink-2)}
-.prose p:last-child{margin-bottom:0}
-.prose strong{font-weight:500;color:var(--ash)}
-.sec--cedro .prose strong{color:var(--ink)}
+  /* Herói */
+  .hero { padding: clamp(3.5rem, 8vw, 7rem) 0 3rem; }
+  .hero h1 { font-size: clamp(2.6rem, 6vw, 4.8rem); max-width: 14ch; }
+  .hero p { margin-top: 1.5rem; max-width: 46ch; font-size: 1.15rem; color: var(--ink-soft); }
+  .hero .local { margin-top: .75rem; font-size: 1rem; color: var(--pine); font-weight: 500; }
 
-/* diagrama */
-.fig{margin-top:42px}
-.fig svg{width:100%;height:auto;display:block}
-.fig figcaption{
-  font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--muted);margin-top:18px;padding-top:14px;border-top:1px solid var(--line-light);
-}
-.dg-label{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;fill:var(--oro-ink)}
-.dg-sub{font-family:var(--sans);font-size:12.5px;fill:var(--muted)}
-.dg-line{stroke:var(--line-light);stroke-width:1}
+  /* Os dois públicos — o elemento principal da página */
+  .publicos { display: grid; grid-template-columns: 1fr 1fr; margin-top: 3.5rem; border: 1.5px solid var(--ink); }
+  .publico { padding: 2.25rem 2rem; }
+  .publico + .publico { border-left: 1.5px solid var(--ink); }
+  .publico.empresa { background: var(--pine-deep); color: var(--white); }
+  .publico h2 { font-size: 1.75rem; margin-bottom: 1rem; }
+  .publico ul { list-style: none; margin: 1.25rem 0 1.75rem; }
+  .publico li { padding: .55rem 0; border-top: 1px solid rgba(127,127,127,.35); }
+  .publico.empresa li { border-color: rgba(255,255,255,.22); }
+  .publico.empresa .btn { background: var(--brass); color: var(--ink); }
+  .publico.empresa .btn:hover { background: #d3a45a; }
+  @media (max-width: 760px) {
+    .publicos { grid-template-columns: 1fr; }
+    .publico + .publico { border-left: 0; border-top: 1.5px solid var(--ink); }
+  }
 
-/* origens */
-.origens{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(278px,1fr));
-  gap:1px;margin-top:44px;background:var(--line-dark);border:1px solid var(--line-dark);
-}
-.org{
-  background:var(--humo);padding:clamp(26px,3.6vw,38px);
-  display:flex;flex-direction:column;
-  transition:background .3s ease;
-}
-.org:hover{background:#1A130D}
-/* altura reservada para o nome: alinha as etiquetas mesmo quando o título quebra */
-.org__n{
-  font-family:var(--display);font-size:clamp(19px,2.2vw,23px);line-height:1.22;
-  min-height:2.44em;
-}
-.org__tag{
-  font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;
-  color:var(--oro);margin-top:4px;
-}
-.org__d{font-size:15px;line-height:1.75;color:var(--ash-dim);margin-top:16px}
-/* a ficha desce até o rodapé do cartão e ocupa a sobra */
-.org__foot{
-  margin-top:auto;padding-top:22px;border-top:1px solid var(--line-dark);
-  font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--oro-soft);
-}
+  /* Imóveis */
+  section { padding: clamp(3rem, 7vw, 5.5rem) 0; }
+  .intro { max-width: 52ch; color: var(--ink-soft); margin-top: .75rem; }
 
-/* passos */
-.passos{margin-top:44px;border-top:1px solid var(--line-light)}
-.passo{display:grid;grid-template-columns:118px 1fr;gap:clamp(16px,4vw,40px);padding:26px 0;border-bottom:1px solid var(--line-light);align-items:baseline}
-.passo__k{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--oro-ink)}
-.passo__t{font-family:var(--display);font-size:clamp(19px,2.3vw,23px);line-height:1.3}
-.passo__d{font-size:15.5px;line-height:1.74;color:var(--muted);margin-top:8px}
-@media(max-width:700px){.passo{grid-template-columns:1fr;gap:8px;align-items:start}}
-/* variante numerada: algarismo grande na serifada, no lugar do rótulo */
-.passos--num .passo{grid-template-columns:78px 1fr}
-.passos--num .passo__k{
-  font-family:var(--display);font-weight:400;
-  font-size:clamp(32px,4.4vw,46px);line-height:.9;
-  letter-spacing:0;text-transform:none;
-  color:var(--oro-ink);opacity:.85;
-}
-@media(max-width:700px){
-  .passos--num .passo{grid-template-columns:1fr}
-  .passos--num .passo__k{font-size:30px}
-}
+  .imovel {
+    display: grid; grid-template-columns: 1.15fr 1fr; gap: 2.5rem;
+    align-items: start; margin-top: 3.5rem; padding-top: 3.5rem; border-top: 1px solid var(--line);
+  }
+  .imovel:first-of-type { border-top: 0; padding-top: 0; }
+  .imovel:nth-child(even) .galeria { order: 2; }
+  .galeria img { width: 100%; aspect-ratio: 4/3; object-fit: cover; background: #DCE1DB; border-radius: 4px; }
 
-/* erros — vive sobre o cedro, então usa a paleta clara */
-.erros__t{margin-top:clamp(46px,6vw,64px)}
-.erros{max-width:700px;margin-top:26px;list-style:none;border-top:1px solid var(--line-light)}
-.erros li{
-  display:grid;grid-template-columns:26px 1fr;gap:0 14px;
-  padding:20px 0;border-bottom:1px solid var(--line-light);
-}
-.erros li::before{
-  content:"×";font-family:var(--mono);font-size:17px;line-height:1.3;
-  color:var(--oro-ink);
-}
-.erros__n{
-  font-family:var(--display);font-size:clamp(18px,2.2vw,21px);
-  line-height:1.3;color:var(--ink);
-}
-.erros__d{font-size:15.5px;line-height:1.72;color:var(--muted);margin-top:6px}
+  .imovel .meta { color: var(--ink-soft); font-weight: 500; margin-bottom: .5rem; }
+  .imovel h3 { font-size: clamp(1.7rem, 3vw, 2.2rem); }
+  .imovel .resumo { margin-top: 1rem; color: var(--ink-soft); max-width: 44ch; }
+  .itens { display: grid; grid-template-columns: 1fr 1fr; gap: .35rem 1rem; margin: 1.5rem 0; list-style: none; }
+  .itens li::before { content: "✓ "; color: var(--pine); font-weight: 700; }
+  .preco { font-family: var(--display); font-size: 1.9rem; }
+  .preco small { font-family: var(--body); font-size: .95rem; color: var(--ink-soft); font-weight: 500; }
+  .acoes { display: flex; gap: .75rem; align-items: center; margin-top: 1.25rem; flex-wrap: wrap; }
+  @media (max-width: 760px) {
+    .imovel { grid-template-columns: 1fr; gap: 1.5rem; }
+    .imovel:nth-child(even) .galeria { order: 0; }
+  }
 
-/* glossário */
-/* filetes no rodapé de cada verbete alinham as linhas mesmo com textos desiguais */
-.glos{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(296px,1fr));
-  gap:0 clamp(30px,5vw,64px);margin-top:38px;
-  border-top:1px solid var(--line-dark);
-}
-.glos>div{padding:20px 0 22px;border-bottom:1px solid var(--line-dark)}
-.glos dt{font-family:var(--display);font-size:19px;line-height:1.25;color:var(--ash)}
-.glos dd{font-size:15px;line-height:1.72;color:var(--ash-faint);margin-top:8px;max-width:44ch}
+  /* Como funciona — é uma sequência, por isso numerada */
+  .passos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 2.5rem; counter-reset: passo; }
+  .passo { counter-increment: passo; border-top: 3px solid var(--pine); padding-top: 1rem; }
+  .passo::before { content: counter(passo) "."; font-family: var(--display); font-size: 1.6rem; color: var(--pine); display: block; }
+  .passo strong { display: block; margin: .25rem 0 .35rem; }
+  .passo p { color: var(--ink-soft); font-size: .95rem; }
+  @media (max-width: 760px) { .passos { grid-template-columns: 1fr 1fr; } }
 
-/* chamada final — painel escuro sobre o cedro */
-.closer{
-  position:relative;max-width:770px;margin:0 auto;overflow:hidden;
-  background:linear-gradient(180deg,#1C150F 0%,#0F0B07 100%);
-  border:1px solid rgba(201,161,91,.3);border-radius:2px;
-  padding:clamp(40px,6.4vw,70px) clamp(24px,5vw,64px) clamp(34px,5vw,56px);
-  text-align:center;color:var(--ash);
-}
-.closer::before{
-  content:"";position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(88% 62% at 50% 0%,rgba(201,161,91,.15),transparent 62%);
-}
-.closer__edge{
-  position:absolute;inset:9px;pointer-events:none;
-  border:1px solid rgba(201,161,91,.16);border-radius:1px;
-}
-.closer>*{position:relative}
-.closer__kicker{
-  font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.24em;
-  text-transform:uppercase;color:var(--oro);
-}
-.closer__h{
-  font-family:var(--display);font-weight:400;line-height:1.16;letter-spacing:-.012em;
-  font-size:clamp(26px,4vw,42px);margin-top:16px;color:var(--ash);
-}
-.closer__h em{font-style:italic;color:var(--oro-soft)}
-.closer__rule{
-  display:flex;align-items:center;justify-content:center;gap:12px;margin-top:24px;
-}
-.closer__rule span{width:54px;height:1px;background:rgba(201,161,91,.42)}
-.closer__rule i{width:5px;height:5px;background:var(--oro);transform:rotate(45deg)}
-.closer__p{
-  font-size:16.5px;line-height:1.78;color:var(--ash-dim);
-  max-width:530px;margin:26px auto 0;
-}
-.closer__b{display:flex;gap:13px;justify-content:center;flex-wrap:wrap;margin-top:36px}
-.closer__note{
-  font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;
-  color:var(--ash-faint);margin-top:26px;
-}
-.btn--wa{background:var(--oro);color:#0F0B07}
-.btn--wa:hover{background:var(--oro-soft);transform:translateY(-2px)}
-.btn--wa svg{width:16px;height:16px;fill:currentColor;flex:none}
+  /* Localização */
+  .localizacao { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+  .endereco { margin-top: .75rem; font-weight: 700; color: var(--pine); }
+  .perto { list-style: none; margin: 1.5rem 0 1.75rem; max-width: 26rem; }
+  .perto li { display: flex; justify-content: space-between; padding: .5rem 0; border-top: 1px solid var(--line); }
+  .perto li span:last-child { color: var(--ink-soft); }
+  .mapa { width: 100%; aspect-ratio: 4/3; border: 1.5px solid var(--line); border-radius: 4px; background: #DCE1DB; }
+  @media (max-width: 760px) { .localizacao { grid-template-columns: 1fr; } }
 
-/* rodapé */
-footer{background:var(--humo-2);padding:50px 0 40px;border-top:1px solid var(--line-dark)}
-.foot__in{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
-.foot__brand{font-family:var(--display);font-size:18px;letter-spacing:.2em;color:var(--ash);padding-left:.2em}
-.foot__note{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ash-faint)}
-.legal{margin-top:32px;padding-top:26px;border-top:1px solid var(--line-dark);font-size:13px;line-height:1.75;color:var(--ash-faint);max-width:760px}
-.legal strong{color:var(--ash-dim);font-weight:500}
-.legal p+p{margin-top:10px}
+  /* Contato */
+  .contato { background: var(--white); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .contato .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+  .contato p { margin-top: 1rem; color: var(--ink-soft); max-width: 42ch; }
+  .canais { list-style: none; display: grid; gap: .75rem; }
+  .canais a { display: block; padding: 1rem 1.25rem; border: 1.5px solid var(--line); border-radius: 4px; text-decoration: none; font-weight: 500; }
+  .canais a:hover { border-color: var(--pine); }
+  .canais span { display: block; font-size: .85rem; color: var(--ink-soft); font-weight: 400; }
+  @media (max-width: 760px) { .contato .wrap { grid-template-columns: 1fr; } }
 
-/* reveal */
-.rv{opacity:0;transform:translateY(16px);transition:opacity .8s cubic-bezier(.2,.7,.3,1),transform .8s cubic-bezier(.2,.7,.3,1)}
-.rv.in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  .rv{opacity:1;transform:none;transition:none}
-  .btn:hover{transform:none}
-}
+  footer { padding: 2rem 0; color: var(--ink-soft); font-size: .9rem; }
+  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: .5rem 1.5rem; }
+  footer a { color: var(--ink-soft); }
+
+  /* Botão flutuante do WhatsApp */
+  .zap-flutuante {
+    position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 20;
+    width: 56px; height: 56px; border-radius: 50%; background: #25D366;
+    display: grid; place-items: center; box-shadow: 0 6px 18px rgba(0,0,0,.18);
+  }
+  .zap-flutuante svg { width: 30px; height: 30px; fill: #fff; }
 </style>
-
-<noscript><style>.rv{opacity:1 !important;transform:none !important}.gate{display:none !important}</style></noscript>
 </head>
+
 <body>
 
-<div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="gateQ">
-  <div class="gate__box">
-    <div class="gate__mark">ALPAG CIGAR</div>
-    <p class="gate__q" id="gateQ">Você tem 18 anos ou mais?</p>
-    <p class="gate__note">Este conteúdo trata de produtos derivados do tabaco. O acesso é restrito a maiores de idade.</p>
-    <div class="gate__btns">
-      <button type="button" class="btn btn--gold" id="gateYes">Tenho 18 anos ou mais</button>
-      <button type="button" class="btn btn--ghost" id="gateNo">Sou menor de 18</button>
-    </div>
-    <p class="gate__deny">O acesso é permitido apenas a maiores de 18 anos.<br>Obrigado pela visita.</p>
-  </div>
-</div>
-
-<header class="nav" id="nav">
-  <div class="wrap nav__in">
-    <a href="index.html" class="brand" aria-label="ALPAG CIGAR, voltar ao início">ALPAG <span class="brand__c">CIGAR</span></a>
-    <nav class="nav__links" aria-label="Navegação principal">
-      <a href="index.html#tempo">O tempo</a>
-      <a href="index.html#vitolas">Vitolas</a>
-      <a href="#anatomia">Guia</a>
-      <a href="acessorios.html">Acessórios</a>
-      <a href="index.html#visita">Visita</a>
+<header>
+  <div class="wrap">
+    <a class="brand" href="#" data-nome></a>
+    <nav>
+      <a href="#imoveis">Imóveis</a>
+      <a href="#empresas">Para empresas</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#localizacao">Localização</a>
+      <a class="btn" data-zap>Falar no WhatsApp</a>
     </nav>
   </div>
 </header>
 
 <main>
 
-  <!-- ABERTURA -->
-  <div class="top">
-    <div class="wrap top__in">
-      <p class="eyebrow rv">Guia para começar</p>
-      <h1 class="rv">Ninguém nasce sabendo<br><em>acender um charuto.</em></h1>
-      <p class="top__lead rv">
-        Este guia cobre o que costuma travar quem está começando: as partes do
-        charuto, o que muda de um país para outro, como cortar sem estragar,
-        como acender, em que ritmo fumar e como guardar. Sem jargão obrigatório.
-      </p>
-      <nav class="toc rv" aria-label="Índice do guia">
-        <a href="#anatomia">Anatomia</a>
-        <a href="#origens">Origens</a>
-        <a href="#capa">A capa</a>
-        <a href="#corte">O corte</a>
-        <a href="#fogo">O fogo</a>
-        <a href="#ritmo">O ritmo</a>
-        <a href="#guarda">A guarda</a>
-        <a href="#glossario">Glossário</a>
-      </nav>
+  <div class="hero wrap">
+    <h1>Hospedagem por diária em Campos Novos, sem a burocracia de hotel.</h1>
+    <p>Dois estúdios e uma casa completa no centro, a poucos minutos da BR-282 e da BR-470. Reserve direto pelo WhatsApp: sem taxa de plataforma e com resposta em até uma hora.</p>
+    <p class="local" data-cidade></p>
+
+    <div class="publicos">
+      <div class="publico empresa" id="empresas">
+        <h2>Para empresas</h2>
+        <p>Colaboradores, técnicos e equipes em missão. Um contato só resolve a estadia inteira.</p>
+        <ul>
+          <li>Nota fiscal em nome da empresa</li>
+          <li>Tarifa reduzida para estadias acima de 7 diárias</li>
+          <li>Faturamento mensal para contas recorrentes</li>
+          <li>Check-in flexível, inclusive fora do horário comercial</li>
+        </ul>
+        <a class="btn" data-zap data-msg="Olá! Sou de uma empresa e quero um orçamento para hospedagem de colaboradores.">Pedir orçamento corporativo</a>
+      </div>
+      <div class="publico">
+        <h2>Para você</h2>
+        <p>Viagem a dois, visita à família ou fim de semana fora. Sem taxa de limpeza escondida.</p>
+        <ul>
+          <li>Reserva direta, sem intermediário</li>
+          <li>Roupa de cama e banho incluídas</li>
+          <li>Wi-Fi e estacionamento em todos os imóveis</li>
+          <li>Instruções de entrada enviadas pelo WhatsApp</li>
+        </ul>
+        <a class="btn ghost" data-zap data-msg="Olá! Quero saber a disponibilidade para uma estadia.">Ver disponibilidade</a>
+      </div>
     </div>
   </div>
 
-  <!-- ANATOMIA -->
-  <section id="anatomia" class="sec--cedro">
-    <div class="wrap wrap--tight">
-      <div class="sec__head rv">
-        <p class="eyebrow">01 · Anatomia</p>
-        <h2>Um charuto tem <em>três folhas</em> e duas pontas</h2>
-        <div class="rule"></div>
-      </div>
-
-      <figure class="fig rv">
-        <svg viewBox="0 0 800 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="figT">
-          <title id="figT">Diagrama das partes de um charuto: pé, capa, anilha, cabeça e o corte transversal mostrando tripa, capote e capa</title>
-
-          <defs>
-            <linearGradient id="leaf" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#7A5638"/>
-              <stop offset="55%" stop-color="#57391F"/>
-              <stop offset="100%" stop-color="#3A2413"/>
-            </linearGradient>
-          </defs>
-
-          <!-- corpo -->
-          <path d="M150 96 H672 a34 34 0 0 1 0 68 H150 Z" fill="url(#leaf)"/>
-          <!-- pé exposto -->
-          <ellipse cx="150" cy="130" rx="9" ry="34" fill="#8A6A45"/>
-          <ellipse cx="150" cy="130" rx="5" ry="22" fill="#6B4E2E"/>
-          <!-- anilha -->
-          <rect x="560" y="94" width="72" height="72" fill="#C9A15B"/>
-          <rect x="560" y="102" width="72" height="1.6" fill="#8A5C2E"/>
-          <rect x="560" y="156" width="72" height="1.6" fill="#8A5C2E"/>
-
-          <!-- linhas guia -->
-          <line class="dg-line" x1="150" y1="88" x2="150" y2="56"/>
-          <line class="dg-line" x1="150" y1="56" x2="196" y2="56"/>
-          <line class="dg-line" x1="360" y1="96" x2="360" y2="56"/>
-          <line class="dg-line" x1="360" y1="56" x2="406" y2="56"/>
-          <line class="dg-line" x1="596" y1="94" x2="596" y2="56"/>
-          <line class="dg-line" x1="596" y1="56" x2="642" y2="56"/>
-          <line class="dg-line" x1="694" y1="164" x2="694" y2="198"/>
-          <line class="dg-line" x1="694" y1="198" x2="640" y2="198"/>
-
-          <text class="dg-label" x="196" y="52">Pé</text>
-          <text class="dg-sub" x="196" y="72">a ponta que acende</text>
-          <text class="dg-label" x="406" y="52">Capa</text>
-          <text class="dg-sub" x="406" y="72">a folha que se vê</text>
-          <text class="dg-label" x="642" y="52">Anilha</text>
-          <text class="dg-label" x="640" y="203" text-anchor="end">Cabeça</text>
-          <text class="dg-sub" x="640" y="223" text-anchor="end">a ponta que se corta</text>
-
-          <!-- corte transversal -->
-          <circle cx="168" cy="268" r="48" fill="#3A2413"/>
-          <circle cx="168" cy="268" r="40" fill="#57391F"/>
-          <circle cx="168" cy="268" r="31" fill="#7A5638"/>
-          <line class="dg-line" x1="216" y1="248" x2="268" y2="248"/>
-          <line class="dg-line" x1="204" y1="268" x2="268" y2="268"/>
-          <line class="dg-line" x1="199" y1="288" x2="268" y2="288"/>
-          <text class="dg-label" x="278" y="252">Capa</text>
-          <text class="dg-label" x="278" y="272">Capote</text>
-          <text class="dg-label" x="278" y="292">Tripa</text>
-          <text class="dg-sub" x="420" y="252">folha externa, define o visual e parte do sabor</text>
-          <text class="dg-sub" x="420" y="272">folha que amarra o recheio</text>
-          <text class="dg-sub" x="420" y="292">o miolo, onde mora a força</text>
-        </svg>
-        <figcaption>As partes de um charuto e o corte transversal</figcaption>
-      </figure>
-
-      <div class="prose rv">
-        <p>
-          A <strong>tripa</strong> é o recheio: um punhado de folhas dobradas no
-          comprimento, e é dela que vem quase toda a força. As folhas do topo da
-          planta receberam mais sol e entram aqui quando se quer intensidade; as
-          de baixo entram para garantir que o charuto queime bem.
-        </p>
-        <p>
-          O <strong>capote</strong> segura esse maço no lugar. É uma folha
-          resistente e nada bonita, porque ninguém vai vê-la.
-        </p>
-        <p>
-          A <strong>capa</strong> é a última camada, a que aparece. É a folha mais
-          cara do charuto: precisa ser lisa, elástica, sem nervura marcada e de cor
-          uniforme. Ela responde por uma fatia do sabor bem menor do que a fama
-          sugere — mas responde por toda a primeira impressão.
-        </p>
-        <p>
-          Nas pontas: o <strong>pé</strong> é a extremidade aberta, que recebe o
-          fogo. A <strong>cabeça</strong> é a ponta fechada por uma tampa de folha
-          colada, que vai à boca e precisa ser cortada antes.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ORIGENS -->
-  <section id="origens">
+  <section id="imoveis">
     <div class="wrap">
-      <div class="sec__head rv">
-        <p class="eyebrow">02 · Origens</p>
-        <h2>O país muda <em>o sabor</em></h2>
-        <div class="rule"></div>
-        <p class="lead">
-          Solo, clima e método de fermentação dão a cada região um caráter
-          reconhecível. Não existe origem melhor — existe a que combina com o
-          seu paladar hoje.
-        </p>
-      </div>
-
-      <div class="origens">
-        <div class="org rv">
-          <div class="org__n">Cuba</div>
-          <div class="org__tag">Vuelta Abajo</div>
-          <p class="org__d">
-            Perfil terroso e amadeirado, com um amargor de café que é a marca da
-            casa. Corpo médio na maior parte das vezes, e uma consistência de
-            construção que virou referência mundial.
-          </p>
-          <p class="org__foot">Corpo médio · terroso</p>
-        </div>
-        <div class="org rv">
-          <div class="org__n">Nicarágua</div>
-          <div class="org__tag">Estelí · Jalapa</div>
-          <p class="org__d">
-            Solo vulcânico, folha forte. Pimenta, terra e um dulçor escuro no
-            fundo. É a origem que mais cresceu nas últimas duas décadas e onde
-            está a melhor relação entre preço e intensidade.
-          </p>
-          <p class="org__foot">Corpo forte · apimentado</p>
-        </div>
-        <div class="org rv">
-          <div class="org__n">República Dominicana</div>
-          <div class="org__tag">Cibao</div>
-          <p class="org__d">
-            O lado suave e cremoso. Amêndoa, cedro, baunilha. É de longe a
-            origem mais amigável para quem está começando e não quer levar um
-            susto na terceira tragada.
-          </p>
-          <p class="org__foot">Corpo suave · cremoso</p>
-        </div>
-        <div class="org rv">
-          <div class="org__n">Honduras</div>
-          <div class="org__tag">Jamastrán</div>
-          <p class="org__d">
-            Meio-termo robusto: mais encorpado que o dominicano, mais domado que
-            o nicaraguense. Costuma trazer nota de couro e madeira seca.
-          </p>
-          <p class="org__foot">Corpo médio a forte · couro</p>
-        </div>
-        <div class="org rv">
-          <div class="org__n">Brasil</div>
-          <div class="org__tag">Recôncavo Baiano</div>
-          <p class="org__d">
-            Mata Fina e Mata Norte são fumos reconhecidos internacionalmente e
-            usados por fabricantes de fora. Perfil doce e levemente adocicado no
-            fim, com boa queima. É a origem mais subestimada do mercado — e a
-            que você encontra por preço justo, sem câmbio no meio.
-          </p>
-          <p class="org__foot">Corpo médio · final doce</p>
-        </div>
-        <div class="org rv">
-          <div class="org__n">Equador</div>
-          <div class="org__tag">Capa</div>
-          <p class="org__d">
-            Quase não faz charuto inteiro, mas produz boa parte das capas do
-            mundo. O céu nublado permanente cria folhas finas e sedosas, ideais
-            para a camada externa.
-          </p>
-          <p class="org__foot">Entra quase sempre só como capa</p>
-        </div>
-      </div>
+      <h2>Os imóveis</h2>
+      <p class="intro">Todos no centro de Campos Novos, com estacionamento, Wi-Fi e roupa de cama e banho incluídas. Peça um orçamento para períodos mais longos.</p>
+      <div id="lista-imoveis"></div>
     </div>
   </section>
 
-  <!-- CAPA -->
-  <section id="capa" class="sec--cedro">
-    <div class="wrap wrap--tight">
-      <div class="sec__head rv">
-        <p class="eyebrow">03 · A capa</p>
-        <h2>Cor escura não quer dizer <em>charuto forte</em></h2>
-        <div class="rule"></div>
-      </div>
-
-      <div class="prose rv">
-        <p>
-          Esse é o mal-entendido mais comum do balcão. A cor da capa vem de
-          quanto tempo aquela folha passou fermentando e de quanto sol ela pegou
-          — não da força do charuto, que mora na tripa, escondida.
-        </p>
-        <p>
-          <strong>Claro</strong> e <strong>Colorado</strong> são as capas
-          castanho-claras e avermelhadas, geralmente mais secas e amadeiradas no
-          sabor. <strong>Maduro</strong> é a capa escura, quase preta, resultado
-          de fermentação longa: costuma ser a <em>mais doce</em> das três, com
-          nota de café e chocolate.
-        </p>
-        <p>
-          Ou seja: um maduro pode perfeitamente ser mais suave que um claro. Se
-          alguém te oferecer o escuro dizendo que é "o forte", desconfie.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CORTE -->
-  <section id="corte">
+  <section id="como-funciona">
     <div class="wrap">
-      <div class="sec__head rv">
-        <p class="eyebrow">04 · O corte</p>
-        <h2>Corte pouco. <em>Não dá para desfazer.</em></h2>
-        <div class="rule"></div>
-        <p class="lead">
-          A regra única: tire só a tampa, cerca de 2 a 3 milímetros. Se você
-          cortar abaixo do ponto onde a capa se fecha, o charuto desmancha na
-          boca e não tem conserto.
-        </p>
-      </div>
-
+      <h2>Como funciona a reserva</h2>
       <div class="passos">
-        <div class="passo rv">
-          <div class="passo__k">Guilhotina</div>
-          <div>
-            <div class="passo__t">Corte reto, duas lâminas</div>
-            <p class="passo__d">
-              O padrão, e o que eu recomendaria para quem está começando. Duas
-              lâminas fecham ao mesmo tempo e o corte sai limpo. Guilhotina de
-              lâmina única esmaga em vez de cortar — não economize nisso.
-            </p>
-          </div>
-        </div>
-        <div class="passo rv">
-          <div class="passo__k">Punch</div>
-          <div>
-            <div class="passo__t">Furo circular</div>
-            <p class="passo__d">
-              Abre um buraco no centro sem remover a tampa. Concentra a fumaça,
-              deixa o sabor mais intenso e evita folha solta na boca. Não serve
-              para charuto de anel fino nem para ponta pontuda.
-            </p>
-          </div>
-        </div>
-        <div class="passo rv">
-          <div class="passo__k">Corte em V</div>
-          <div>
-            <div class="passo__t">Canal em cunha</div>
-            <p class="passo__d">
-              Abre uma fenda funda em vez de um círculo. Bom fluxo sem
-              desestruturar a cabeça. Divide opiniões: alguns acham que
-              concentra alcatrão na fenda.
-            </p>
-          </div>
-        </div>
-        <div class="passo rv">
-          <div class="passo__k">Sem cortador</div>
-          <div>
-            <div class="passo__t">O que fazer no aperto</div>
-            <p class="passo__d">
-              Uma faca bem afiada, apoiando o charuto numa superfície e girando
-              contra a lâmina, resolve. Morder ou arrancar com a unha, não —
-              rasga a capa e o charuto começa a se abrir pelo caminho.
-            </p>
-          </div>
-        </div>
+        <div class="passo"><strong>Você escolhe o imóvel</strong><p>Manda mensagem com as datas e quantas pessoas vão ficar.</p></div>
+        <div class="passo"><strong>Confirmamos a disponibilidade</strong><p>Resposta no mesmo dia, com valor total e forma de pagamento.</p></div>
+        <div class="passo"><strong>Pagamento por cartão, Pix ou dinheiro</strong><p>Você escolhe a forma. Empresas podem pagar contra nota fiscal, no faturamento combinado.</p></div>
+        <div class="passo"><strong>Chegou, entrou</strong><p>Código da fechadura e instruções chegam pelo WhatsApp antes do check-in.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- FOGO -->
-  <section id="fogo" class="sec--cedro">
-    <div class="wrap wrap--tight">
-      <div class="sec__head rv">
-        <p class="eyebrow">05 · O fogo</p>
-        <h2>Acender leva <em>um minuto</em>, e é tempo bem gasto</h2>
-        <div class="rule"></div>
-        <p class="lead">
-          Um charuto mal aceso queima torto do começo ao fim e não tem como
-          corrigir depois. Vale a paciência.
-        </p>
+  <section id="localizacao">
+    <div class="wrap localizacao">
+      <div>
+        <h2>Onde ficam os imóveis</h2>
+        <p class="endereco" data-endereco></p>
+        <p class="intro">No Centro de Campos Novos, perto de todas as oportunidades e facilidades da cidade. Você resolve tudo a pé e, quando precisa sair, as rodovias estão a poucos minutos.</p>
+        <ul class="perto">
+          <li><span>Conveniência</span><span>30 m</span></li>
+          <li><span>Restaurante</span><span>50 m</span></li>
+          <li><span>Padaria</span><span>80 m</span></li>
+          <li><span>Supermercado</span><span>100 m</span></li>
+          <li><span>Academia</span><span>150 m</span></li>
+          <li><span>Farmácia</span><span>200 m</span></li>
+          <li><span>Acesso às BR-282 e BR-470</span><span>poucos min.</span></li>
+        </ul>
+        <a class="btn ghost" data-maps target="_blank" rel="noopener">Abrir no Google Maps</a>
       </div>
-
-      <div class="passos passos--num">
-        <div class="passo rv">
-          <div class="passo__k">1</div>
-          <div>
-            <div class="passo__t">Escolha a chama certa</div>
-            <p class="passo__d">
-              Isqueiro de maçarico (butano, sem cheiro) ou fósforo longo de
-              madeira. Isqueiro comum de fluido deixa gosto de combustível nas
-              primeiras tragadas, e fósforo curto queima seu dedo antes da hora.
-            </p>
-          </div>
-        </div>
-        <div class="passo rv">
-          <div class="passo__k">2</div>
-          <div>
-            <div class="passo__t">Toste o pé sem encostar</div>
-            <p class="passo__d">
-              Mantenha a chama uns dois centímetros abaixo do pé e gire o charuto
-              devagar, sem levar à boca ainda. A borda vai escurecendo por
-              igual. Encostar a chama na folha queima e amarga.
-            </p>
-          </div>
-        </div>
-        <div class="passo rv">
-          <div class="passo__k">3</div>
-          <div>
-            <div class="passo__t">Puxe girando</div>
-            <p class="passo__d">
-              Agora leve à boca e dê tragadas curtas enquanto continua girando,
-              com a chama próxima. Poucas tragadas bastam.
-            </p>
-          </div>
-        </div>
-        <div class="passo rv">
-          <div class="passo__k">4</div>
-          <div>
-            <div class="passo__t">Confira a brasa</div>
-            <p class="passo__d">
-              Sopre de leve no pé: a brasa deve estar acesa por toda a
-              circunferência. Se ficou um lado apagado, volte a chama só naquele
-              ponto. Corrigir agora custa dez segundos; ignorar custa a hora
-              inteira.
-            </p>
-          </div>
-        </div>
-      </div>
+      <iframe class="mapa" data-mapa title="Mapa da localização" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </section>
 
-  <!-- RITMO -->
-  <section id="ritmo">
+  <section class="contato" id="contato">
     <div class="wrap">
-      <div class="sec__head rv">
-        <p class="eyebrow">06 · O ritmo</p>
-        <h2>Devagar. <em>Charuto não é cigarro.</em></h2>
-        <div class="rule"></div>
+      <div>
+        <h2>Fale com a gente</h2>
+        <p>Mande as datas e o número de hóspedes pelo WhatsApp. Respondemos no mesmo dia, com valor total e forma de pagamento.</p>
       </div>
-
-      <div class="prose rv">
-        <p>
-          <strong>Não se traga.</strong> A fumaça vai até a boca, circula e sai.
-          Puxar para o pulmão é desagradável, dá enjoo e não é assim que o sabor
-          aparece — ele está no paladar e no retronasal, não no peito.
-        </p>
-        <p>
-          <strong>Uma tragada por minuto, mais ou menos.</strong> Puxar demais
-          superaquece a brasa, e um charuto quente fica amargo e áspero.
-          Superaquecer é o erro que mais estraga charuto bom.
-        </p>
-        <p>
-          <strong>Deixe a cinza crescer.</strong> Dois a três centímetros. A
-          cinza funciona como isolante e ajuda a manter a brasa fria. Bater a
-          cada tragada é ansiedade, não técnica.
-        </p>
-        <p>
-          <strong>Coma antes.</strong> De estômago vazio, a nicotina bate forte —
-          é o famoso enjoo de principiante, e não tem nada a ver com a qualidade
-          do charuto.
-        </p>
-        <p>
-          <strong>Pare quando quiser.</strong> Não existe obrigação de fumar até
-          o fim. Quando esquentar demais ou o sabor virar, apoie e deixe apagar
-          sozinho. Charuto apagado e retomado no dia seguinte fica ruim: se
-          parou, acabou.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- GUARDA -->
-  <section id="guarda" class="sec--cedro">
-    <div class="wrap wrap--tight">
-      <div class="sec__head rv">
-        <p class="eyebrow">07 · A guarda</p>
-        <h2>Sessenta e cinco a setenta <em>por cento</em></h2>
-        <div class="rule"></div>
-        <p class="lead">
-          Charuto é matéria viva e só se mantém dentro de uma faixa estreita de
-          umidade. Fora dela, estraga — em semanas, e sem volta.
-        </p>
-      </div>
-
-      <div class="prose rv">
-        <p>
-          <strong>Seco demais</strong> (abaixo de 60%): a capa racha, o charuto
-          queima rápido e o sabor fica áspero e sem doçura. É o destino de todo
-          charuto guardado em gaveta.
-        </p>
-        <p>
-          <strong>Úmido demais</strong> (acima de 75%): não puxa direito, apaga
-          toda hora, e existe risco de mofo e de bicho-do-tabaco eclodir dentro
-          da folha. Um charuto com furinhos foi comido por dentro.
-        </p>
-        <p>
-          A temperatura importa quase tanto: entre 18 e 21 °C. Calor com
-          umidade alta é justamente o que faz o ovo do besouro chocar.
-        </p>
-        <p>
-          O <strong>humidor</strong> é uma caixa forrada em cedro espanhol, que
-          além de estabilizar a umidade acrescenta aroma. Caixa nova precisa ser
-          temperada antes do primeiro charuto. Compre um higrômetro digital
-          separado — os analógicos que vêm de brinde quase nunca são confiáveis.
-        </p>
-        <p>
-          <strong>Para poucos charutos</strong>, um pote de vidro hermético com
-          um sachê de umidade controlada resolve muito bem e custa quase nada.
-          Não é gambiarra: mantém melhor que humidor barato mal vedado.
-        </p>
-      </div>
-
-      <p class="eyebrow erros__t rv">O que não fazer</p>
-      <ul class="erros rv">
-        <li>
-          <div>
-            <div class="erros__n">Geladeira</div>
-            <p class="erros__d">Resseca a folha e passa cheiro de comida.</p>
-          </div>
-        </li>
-        <li>
-          <div>
-            <div class="erros__n">Esponja ou algodão molhado</div>
-            <p class="erros__d">Umidade descontrolada e mofo quase certo.</p>
-          </div>
-        </li>
-        <li>
-          <div>
-            <div class="erros__n">Deixar no tubo de alumínio por meses</div>
-            <p class="erros__d">O tubo protege no transporte, não conserva.</p>
-          </div>
-        </li>
-        <li>
-          <div>
-            <div class="erros__n">Água da torneira no umidificador</div>
-            <p class="erros__d">Os minerais entopem a espuma e criam fungo. Use destilada.</p>
-          </div>
-        </li>
-        <li>
-          <div>
-            <div class="erros__n">Guardar junto de aromatizados</div>
-            <p class="erros__d">O aroma migra e contamina todos os outros charutos.</p>
-          </div>
-        </li>
+      <ul class="canais">
+        <li><a data-zap>WhatsApp<span data-zap-numero></span><span>Resposta em até 1 hora</span></a></li>
       </ul>
-    </div>
-  </section>
-
-  <!-- GLOSSÁRIO -->
-  <section id="glossario">
-    <div class="wrap">
-      <div class="sec__head rv">
-        <p class="eyebrow">08 · Glossário</p>
-        <h2>As palavras que <em>você vai ouvir</em></h2>
-        <div class="rule"></div>
-      </div>
-
-      <dl class="glos rv">
-        <div>
-          <dt>Anel</dt>
-          <dd>O diâmetro, medido em 64 avos de polegada. Anel 50 equivale a cerca de 20 mm.</dd>
-        </div>
-        <div>
-          <dt>Anilha</dt>
-          <dd>A faixa de papel perto da cabeça. Tire só depois de fumar um pouco, quando a goma amolece.</dd>
-        </div>
-        <div>
-          <dt>Ligero, seco, volado</dt>
-          <dd>As folhas da tripa conforme a altura no pé: ligero é a de cima e a mais forte, volado a de baixo e a que melhor queima.</dd>
-        </div>
-        <div>
-          <dt>Puro</dt>
-          <dd>Charuto feito inteiramente com folhas de um único país.</dd>
-        </div>
-        <div>
-          <dt>Retronasal</dt>
-          <dd>Soltar um pouco de fumaça pelo nariz. É onde metade do sabor aparece — comece com pouco.</dd>
-        </div>
-        <div>
-          <dt>Temperar</dt>
-          <dd>Umedecer o cedro de um humidor novo antes do primeiro uso, para que ele não roube umidade dos charutos.</dd>
-        </div>
-        <div>
-          <dt>Torcedor</dt>
-          <dd>Quem enrola o charuto à mão. Um bom torcedor faz algumas centenas por dia.</dd>
-        </div>
-        <div>
-          <dt>Túnel</dt>
-          <dd>Quando o miolo queima na frente da capa. Sinal de charuto seco ou mal aceso.</dd>
-        </div>
-        <div>
-          <dt>Vitola</dt>
-          <dd>O formato do charuto: comprimento e diâmetro. Robusto, Toro e Churchill são vitolas.</dd>
-        </div>
-      </dl>
-    </div>
-  </section>
-
-  <!-- CHAMADA -->
-  <section class="sec--cedro">
-    <div class="wrap">
-      <div class="closer rv">
-        <span class="closer__edge" aria-hidden="true"></span>
-
-        <p class="closer__kicker">Próximo passo</p>
-        <h2 class="closer__h">O resto se aprende <em>junto conosco</em>.</h2>
-        <div class="closer__rule" aria-hidden="true"><span></span><i></i><span></span></div>
-
-        <p class="closer__p">
-          Texto ajuda até certo ponto. Entre no nosso grupo do WhatsApp: é lá que
-          tiramos dúvida de quem está começando, avisamos o que chegou na loja e
-          combinamos as rodadas. Pergunte o que leu aqui e o que ainda não
-          entendeu — a gente explica.
-        </p>
-
-        <div class="closer__b">
-          <!-- TROCAR: link de convite do seu grupo (WhatsApp > grupo > Convidar via link) -->
-          <a href="https://chat.whatsapp.com/SEU-LINK-AQUI" class="btn btn--wa" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91C21.95 6.45 17.5 2 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23a8.2 8.2 0 0 1 8.24 8.24c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.43.06-.66.31-.22.25-.87.85-.87 2.07s.89 2.4 1.02 2.56c.12.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.68-1.19.2-.58.2-1.08.14-1.19-.06-.1-.22-.16-.47-.28Z"/></svg>
-            Entrar no grupo do WhatsApp
-          </a>
-          <a href="https://wa.me/5549998226818" class="btn btn--ghost" target="_blank" rel="noopener">Falar direto com a gente</a>
-        </div>
-
-        <p class="closer__note">Grupo exclusivo para maiores de 18 anos</p>
-      </div>
     </div>
   </section>
 
@@ -868,64 +310,64 @@ footer{background:var(--humo-2);padding:50px 0 40px;border-top:1px solid var(--l
 
 <footer>
   <div class="wrap">
-    <div class="foot__in">
-      <div class="foot__brand">ALPAG <span class="brand__c">CIGAR</span></div>
-      <div class="foot__note">© 2026 ALPAG CIGAR · Todos os direitos reservados</div>
-    </div>
-    <div class="legal">
-      <p>
-        <strong>Venda proibida a menores de 18 anos.</strong> O uso de produtos
-        derivados do tabaco causa doenças graves.
-      </p>
-      <p>
-        Conteúdo informativo. Este site é institucional e
-        <strong>não realiza vendas</strong>: não há catálogo, preços ou pedidos
-        on-line. A comercialização acontece exclusivamente de forma presencial,
-        no interior do estabelecimento, conforme a Lei nº 9.294/1996 e o Decreto
-        nº 2.018/1996.
-      </p>
-    </div>
+    <span><span data-nome></span> · <span data-cidade></span></span>
+    <span class="plataformas">Também estamos no <a data-airbnb target="_blank" rel="noopener">Airbnb</a><span data-booking-wrap> e na <a data-booking target="_blank" rel="noopener">Booking</a></span>.</span>
+    <span>© <span id="ano"></span></span>
   </div>
 </footer>
 
+<a class="zap-flutuante" data-zap aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.1.6a2.6 2.6 0 0 0 1.7-1.2 2 2 0 0 0 .2-1.2c-.1-.1-.3-.2-.5-.3z"/></svg>
+</a>
+
 <script>
-(function(){
-  var gate=document.getElementById('gate'), KEY='alpag_age_ok', passed=false;
-  try{passed=sessionStorage.getItem(KEY)==='1';}catch(e){}
-  if(passed){gate.hidden=true;}
-  else{
-    document.body.style.overflow='hidden';
-    document.getElementById('gateYes').addEventListener('click',function(){
-      try{sessionStorage.setItem(KEY,'1');}catch(e){}
-      gate.hidden=true;document.body.style.overflow='';
-    });
-    document.getElementById('gateNo').addEventListener('click',function(){
-      gate.classList.add('denied');
-    });
+  // Monta o link do WhatsApp com mensagem pré-preenchida
+  function linkZap(msg) {
+    return "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(msg || "Olá! Vi o site e quero informações sobre hospedagem.");
   }
 
-  var nav=document.getElementById('nav');
-  function onScroll(){nav.classList.toggle('solid',window.scrollY>40);}
-  window.addEventListener('scroll',onScroll,{passive:true});
-  onScroll();
+  // Preenche nome, cidade e contatos em todos os lugares marcados
+  document.querySelectorAll("[data-nome]").forEach(el => el.textContent = CONFIG.nome);
+  document.querySelectorAll("[data-cidade]").forEach(el => el.textContent = CONFIG.cidade);
+  document.querySelector("[data-zap-numero]").textContent = "+" + CONFIG.whatsapp.replace(/^55(\d{2})(\d{5})(\d{4})$/, "55 ($1) $2-$3");
+  document.getElementById("ano").textContent = new Date().getFullYear();
+  document.querySelector("[data-endereco]").textContent = CONFIG.endereco;
+  const enderecoUrl = encodeURIComponent(CONFIG.endereco);
+  document.querySelector("[data-maps]").href = "https://www.google.com/maps/search/?api=1&query=" + enderecoUrl;
+  document.querySelector("[data-mapa]").src = "https://www.google.com/maps?q=" + enderecoUrl + "&z=16&output=embed";
+  document.querySelector("[data-airbnb]").href = CONFIG.airbnb;
+  if (CONFIG.booking) { document.querySelector("[data-booking]").href = CONFIG.booking; }
+  else { document.querySelector("[data-booking-wrap]").remove(); }
 
-  var items=document.querySelectorAll('.rv');
-  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-    items.forEach(function(el){el.classList.add('in');});return;
-  }
-  var io=new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
-    });
-  },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
-  items.forEach(function(el){io.observe(el);});
+  // Gera um bloco para cada imóvel da lista
+  const lista = document.getElementById("lista-imoveis");
+  IMOVEIS.forEach(im => {
+    const el = document.createElement("article");
+    el.className = "imovel";
+    el.innerHTML = `
+      <div class="galeria">
+        <img src="${im.foto}" alt="${im.nome}" loading="lazy">
+      </div>
+      <div>
+        <p class="meta">${im.tipo} · até ${im.hospedes} hóspedes · ${im.quartos}</p>
+        <h3>${im.nome}</h3>
+        <p class="resumo">${im.resumo}</p>
+        <ul class="itens">${im.itens.map(i => `<li>${i}</li>`).join("")}</ul>
+        <p class="preco">${im.preco ? `R$ ${im.preco} <small>por diária</small>` : `<small>Consulte valores pelo WhatsApp</small>`}</p>
+        <div class="acoes">
+          <a class="btn" data-zap data-msg="Olá! Quero reservar o ${im.nome}. Poderia me passar a disponibilidade?">Reservar pelo WhatsApp</a>
+          <a class="btn ghost" data-zap data-msg="Olá! Sou de uma empresa e quero um orçamento para o ${im.nome} em estadia longa.">Orçamento para empresa</a>
+        </div>
+      </div>`;
+    lista.appendChild(el);
+  });
 
-  function showTop(){
-    document.querySelectorAll('.top .rv').forEach(function(el){el.classList.add('in');});
-  }
-  window.addEventListener('load',showTop);
-  setTimeout(showTop,80);
-})();
+  // Ativa todos os botões de WhatsApp (inclusive os gerados acima)
+  document.querySelectorAll("[data-zap]").forEach(a => {
+    a.href = linkZap(a.dataset.msg);
+    a.target = "_blank";
+    a.rel = "noopener";
+  });
 </script>
 
 </body>
