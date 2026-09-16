@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#000000">
 <title>ALPAG Reservas — hospedagem por diária em Campos Novos, SC</title>
-<meta name="description" content="Estúdios e casa completa no centro de Campos Novos, SC. Diária direto com o anfitrião, sem taxa de plataforma. Nota fiscal para empresas. Superhost no Airbnb.">
+<meta name="description" content="Imóveis completos no Centro de Campos Novos, SC, para você ou sua equipe. Mais barato que hotel e sem burocracia: diária direto com o anfitrião, sem taxa de plataforma. Nota fiscal para empresas. Superhost no Airbnb.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='240 230 750 460'%3E%3Crect x='240' y='230' width='750' height='460' fill='%23000'/%3E%3Cg fill='%23fff'%3E%3Cpolygon points='252,675 540,242 606,345 577,390 540,330 340,630 420,630 391,675'/%3E%3Cpolygon points='642,345 713,242 975,675 840,675 811,630 891,630 713,330 671,390'/%3E%3Cpolygon points='420,675 624,373 812,675 575,675 632,596 645,618 638,630 727,630 624,456 482,675'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,9 +45,9 @@ const IMOVEIS = [
     quartos: "1 cama queen, 1 banheiro",
     preco: null,
     airbnb: "https://www.airbnb.com.br/rooms/1745908216322106180",
-    resumo: "Estúdio elegante e bem localizado no centro, com cama queen, cozinha e estacionamento no local. Uma boa escolha para quem viaja sozinho ou a dois.",
+    resumo: "Estúdio elegante e bem localizado no Centro, com cama queen, cozinha e estacionamento no local. Uma boa escolha para quem viaja sozinho ou a dois.",
     itens: ["Cama queen", "Cozinha equipada", "Wi-Fi", "TV", "Estacionamento gratuito"],
-    fotos: ["https://a0.muscache.com/im/pictures/hosting/Hosting-1745908216322106180/original/a1ef8ebb-9105-4dfa-b065-8da36c2d4788.jpeg?im_w=960"],
+    fotos: [], // sem fotos por enquanto: aparece a logo no lugar. Ex.: ["fotos/estudio-01-quarto.jpg"]
   },
   {
     nome: "Estúdio 02 no Centro",
@@ -196,6 +196,13 @@ const IMOVEIS = [
     width: 100%; aspect-ratio: 4/5; max-height: 640px; object-fit: cover; background: var(--ash);
     clip-path: polygon(0 0, calc(100% - 38px) 0, 100% 38px, 100% 100%, 38px 100%, 0 calc(100% - 38px));
   }
+  .sem-foto {
+    aspect-ratio: 4/5; max-height: 640px; background: var(--ash); color: var(--graphite);
+    display: grid; place-content: center; justify-items: center; gap: 1rem;
+    clip-path: polygon(0 0, calc(100% - 38px) 0, 100% 38px, 100% 100%, 38px 100%, 0 calc(100% - 38px));
+  }
+  .sem-foto svg { width: 45%; min-width: 140px; }
+  .sem-foto span { color: var(--smoke); font-weight: 600; font-size: .95rem; }
   .seta {
     position: absolute; top: 50%; transform: translateY(-50%);
     width: 46px; height: 46px; border: 0; cursor: pointer;
@@ -341,8 +348,8 @@ const IMOVEIS = [
       <polygon points="420,675 624,373 812,675 575,675 632,596 645,618 638,630 727,630 624,456 482,675"/>
     </svg>
     <div class="wrap">
-      <h1>Diária boa não precisa ser cara.</h1>
-      <p class="hero-sub">Dois estúdios e uma casa completa no centro de <span data-cidade></span>. Você fala direto com o anfitrião e paga só a diária: sem taxa de plataforma e sem hotel.</p>
+      <h1>Mais barato que hotel. Menos burocrático também.</h1>
+      <p class="hero-sub">Imóveis completos no Centro de Campos Novos. Escolha conforme a sua necessidade ou a da sua equipe. Você fala direto com o anfitrião, paga só a diária e entra com um código: sem recepção, sem fila e sem taxa de plataforma.</p>
       <div class="hero-acoes">
         <a class="btn" data-zap data-msg="Olá! Quero saber o valor e a disponibilidade de uma diária.">Ver valor da diária</a>
         <a class="btn ghost" href="#imoveis">Conhecer os imóveis</a>
@@ -351,13 +358,13 @@ const IMOVEIS = [
       <div class="motivos">
         <div class="motivo">
           <svg class="marca" viewBox="245 235 735 445" aria-hidden="true"><use href="#montanhas"/></svg>
-          <strong>Preço de anfitrião</strong>
-          <p>Reservando pelo WhatsApp, a taxa que as plataformas cobram fica no seu bolso.</p>
+          <strong>Mais barato que hotel</strong>
+          <p>Casa ou estúdio com cozinha pelo preço de um quarto. E, reservando pelo WhatsApp, a taxa das plataformas fica no seu bolso.</p>
         </div>
         <div class="motivo">
           <svg class="marca" viewBox="245 235 735 445" aria-hidden="true"><use href="#montanhas"/></svg>
-          <strong>Nenhum imóvel igual</strong>
-          <p>Cada espaço foi montado de um jeito, para quem viaja sozinho, a dois ou em equipe.</p>
+          <strong>Menos burocracia</strong>
+          <p>Nada de recepção, ficha ou horário de balcão. Combine pelo WhatsApp e entre com o código da fechadura.</p>
         </div>
         <div class="motivo">
           <svg class="marca" viewBox="245 235 735 445" aria-hidden="true"><use href="#montanhas"/></svg>
@@ -378,6 +385,7 @@ const IMOVEIS = [
           <li>Tarifa reduzida para estadias acima de 7 diárias</li>
           <li>Faturamento mensal para contas recorrentes</li>
           <li>Check-in flexível, inclusive fora do horário comercial</li>
+          <li>Roupa de cama, banho e itens de higiene inclusos</li>
         </ul>
         <a class="btn" data-zap data-msg="Olá! Sou de uma empresa e quero um orçamento para hospedagem de colaboradores.">Pedir orçamento corporativo</a>
       </div>
@@ -387,6 +395,8 @@ const IMOVEIS = [
         <ul>
           <li>Reserva direta, sem intermediário</li>
           <li>Roupa de cama e banho incluídas</li>
+          <li>Lençóis e travesseiros higienizados a cada estadia</li>
+          <li>Itens de higiene pessoal inclusos</li>
           <li>Wi-Fi e estacionamento em todos os imóveis</li>
           <li>Instruções de entrada enviadas pelo WhatsApp</li>
         </ul>
@@ -400,7 +410,7 @@ const IMOVEIS = [
       <div class="cabeca">
         <div>
           <h2>Os imóveis</h2>
-          <p class="intro">Todos no centro de Campos Novos, com estacionamento, Wi-Fi e roupa de cama e banho incluídas. Peça um orçamento para períodos mais longos.</p>
+          <p class="intro">Todos no Centro de Campos Novos, com estacionamento e Wi-Fi. Roupa de cama e banho e itens de higiene pessoal estão incluídos, e lençóis e travesseiros são higienizados a cada estadia. Peça um orçamento para períodos mais longos.</p>
         </div>
       </div>
       <div id="lista-imoveis"></div>
@@ -455,7 +465,7 @@ const IMOVEIS = [
       <svg class="marca marca-grande" viewBox="245 235 735 445" aria-hidden="true"><use href="#montanhas"/></svg>
       <h2>Mande as datas. A gente manda o preço.</h2>
       <p>Diga quantas pessoas vão ficar e em quais dias. Respondemos pelo WhatsApp com o valor total e a forma de pagamento.</p>
-      <a class="btn" data-zap>Pedir valor no WhatsApp</a>
+      <a class="btn" data-zap>SOLICITAR VALORES NO WHATSAPP</a>
       <span class="numero" data-zap-numero></span>
     </div>
   </section>
@@ -501,7 +511,9 @@ const IMOVEIS = [
     el.innerHTML = `
       <div class="galeria">
         <div class="foto-principal">
-          <img src="${im.fotos[0]}" alt="${im.nome}, foto 1" loading="lazy">
+          ${im.fotos.length
+            ? `<img src="${im.fotos[0]}" alt="${im.nome}, foto 1" loading="lazy">`
+            : `<div class="sem-foto"><svg class="marca" viewBox="245 235 735 445" aria-hidden="true"><use href="#montanhas"/></svg><span>Fotos em breve</span></div>`}
           ${im.fotos.length > 1 ? `
             <span class="contador">1 / ${im.fotos.length}</span>
             <button class="seta ant" type="button" aria-label="Foto anterior">‹</button>
