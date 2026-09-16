@@ -3,10 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#000000">
 <title>ALPAG Reservas — hospedagem por diária em Campos Novos, SC</title>
-<meta name="description" content="Estúdios e casa completa no centro de Campos Novos, SC. Locação por diária para empresas (com nota fiscal) e viajantes. Superhost no Airbnb.">
+<meta name="description" content="Estúdios e casa completa no centro de Campos Novos, SC. Diária direto com o anfitrião, sem taxa de plataforma. Nota fiscal para empresas. Superhost no Airbnb.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='240 230 750 460'%3E%3Crect x='240' y='230' width='750' height='460' fill='%23000'/%3E%3Cg fill='%23fff'%3E%3Cpolygon points='252,675 540,242 606,345 577,390 540,330 340,630 420,630 391,675'/%3E%3Cpolygon points='642,345 713,242 975,675 840,675 811,630 891,630 713,330 671,390'/%3E%3Cpolygon points='420,675 624,373 812,675 575,675 632,596 645,618 638,630 727,630 624,456 482,675'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800;900&display=swap" rel="stylesheet">
 
 <script>
 /* =====================================================================
@@ -22,40 +25,40 @@ const CONFIG = {
 };
 
 // preco: coloque o valor da diária em R$ (ex.: 180). Se deixar null, o site mostra "Consulte valores".
-// foto: nome do arquivo da imagem principal (na mesma pasta do index.html).
+// fotos: lista de imagens da galeria (a primeira é a de capa). Ficam na pasta "fotos", ao lado do index.html.
 const IMOVEIS = [
   {
     nome: "Casa Planejada no Centro",
     tipo: "Casa inteira",
     hospedes: 5,
-    quartos: "2 quartos · 1 banheiro",
+    quartos: "2 quartos, 1 banheiro",
     preco: null,
     airbnb: "https://www.airbnb.com.br/rooms/1622042061950090312",
     resumo: "Casa nova no coração de Campos Novos, com dois quartos, cozinha completa, garagem e fechadura eletrônica. Check-in totalmente autônomo: o código chega por mensagem antes da chegada.",
-    itens: ["Cama de casal + cama de solteiro", "Cozinha completa", "Ar-condicionado", "Espaço de trabalho com mesa e luminária", "Garagem e portão eletrônico", "Smart TV e Wi-Fi de alta velocidade", "Secador e ferro de passar", "Aceita pets"],
-    foto: "casa-cozinha.png",
+    itens: ["Cama de casal + cama de solteiro", "Cozinha completa", "Ar-condicionado", "Espaço de trabalho com mesa e luminária", "Garagem e portão eletrônico", "Smart TV e Wi-Fi de alta velocidade", "Secador e ferro de passar"],
+    fotos: ["fotos/casa-sala-cozinha.jpg", "fotos/casa-balcao.jpg", "fotos/casa-quarto-casal.jpg", "fotos/casa-quarto-solteiro.jpg"],
   },
   {
     nome: "Estúdio 01 no Centro",
     tipo: "Estúdio",
     hospedes: 3,
-    quartos: "1 cama queen · 1 banheiro",
+    quartos: "1 cama queen, 1 banheiro",
     preco: null,
     airbnb: "https://www.airbnb.com.br/rooms/1745908216322106180",
     resumo: "Estúdio elegante e bem localizado no centro, com cama queen, cozinha e estacionamento no local. Uma boa escolha para quem viaja sozinho ou a dois.",
-    itens: ["Cama queen", "Cozinha equipada", "Wi-Fi", "TV", "Estacionamento gratuito", "Aceita pets"],
-    foto: "https://a0.muscache.com/im/pictures/hosting/Hosting-1745908216322106180/original/a1ef8ebb-9105-4dfa-b065-8da36c2d4788.jpeg?im_w=960",
+    itens: ["Cama queen", "Cozinha equipada", "Wi-Fi", "TV", "Estacionamento gratuito"],
+    fotos: ["https://a0.muscache.com/im/pictures/hosting/Hosting-1745908216322106180/original/a1ef8ebb-9105-4dfa-b065-8da36c2d4788.jpeg?im_w=960"],
   },
   {
     nome: "Estúdio 02 no Centro",
     tipo: "Estúdio",
     hospedes: 4,
-    quartos: "2 camas de solteiro · 1 banheiro",
+    quartos: "2 camas de solteiro, 1 banheiro",
     preco: null,
     airbnb: "https://www.airbnb.com.br/rooms/1545924111350423313",
     resumo: "Ambiente integrado, silencioso e bem iluminado, próximo ao Colégio Auxiliadora e à Avenida JK. Conveniência, padaria, supermercado e academia a menos de 200 m.",
-    itens: ["2 camas de solteiro", "Cozinha com cafeteira e sanduicheira", "Espaço de trabalho exclusivo", "Wi-Fi de qualidade", "TV com diversos canais", "1 vaga de garagem", "Entrada independente", "Aceita pets"],
-    foto: "estudio-02-quarto.png",
+    itens: ["2 camas de solteiro", "Cozinha com cafeteira e sanduicheira", "Espaço de trabalho exclusivo", "Wi-Fi de qualidade", "TV com diversos canais", "1 vaga de garagem", "Entrada independente"],
+    fotos: ["fotos/estudio-02-quarto.jpg", "fotos/estudio-02-trabalho.jpg", "fotos/estudio-02-entrada.jpg"],
   },
 ];
 /* ===================================================================== */
@@ -63,16 +66,12 @@ const IMOVEIS = [
 
 <style>
   :root {
-    --bg: #F1F3EF;
-    --ink: #1B2621;
-    --ink-soft: #55635C;
-    --pine: #245C43;
-    --pine-deep: #17402E;
-    --brass: #B78B45;
-    --line: #CFD6D0;
+    --black: #000000;
     --white: #FFFFFF;
-    --display: "Fraunces", Georgia, serif;
-    --body: "Manrope", system-ui, sans-serif;
+    --smoke: #A6A6A6;   /* texto secundário */
+    --graphite: #2A2A2A; /* linhas e divisórias */
+    --ash: #141414;      /* superfícies elevadas */
+    --font: "Montserrat", "Helvetica Neue", Arial, sans-serif;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -80,136 +79,249 @@ const IMOVEIS = [
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
   body {
-    font-family: var(--body);
-    color: var(--ink);
-    background: var(--bg);
-    line-height: 1.6;
+    font-family: var(--font);
+    color: var(--white);
+    background: var(--black);
+    line-height: 1.65;
+    font-size: 1rem;
     -webkit-font-smoothing: antialiased;
   }
   img { display: block; max-width: 100%; }
   a { color: inherit; }
-  a:focus-visible, button:focus-visible { outline: 3px solid var(--brass); outline-offset: 3px; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--white); outline-offset: 4px; }
 
-  .wrap { width: min(1120px, 100% - 2.5rem); margin-inline: auto; }
+  .wrap { width: min(1180px, 100% - 2.5rem); margin-inline: auto; }
 
-  h1, h2, h3 { font-family: var(--display); font-weight: 600; line-height: 1.08; letter-spacing: -0.01em; }
-  h2 { font-size: clamp(1.9rem, 3.4vw, 2.6rem); }
+  h1, h2, h3 { font-weight: 900; line-height: 1; letter-spacing: -0.02em; }
+  h2 { font-size: clamp(2.2rem, 5vw, 3.8rem); }
 
-  /* Cabeçalho */
+  /* A marca: montanhas da logo, sempre em SVG */
+  .marca { fill: currentColor; }
+
+  /* ---------- Cabeçalho ---------- */
   header {
     position: sticky; top: 0; z-index: 10;
-    background: rgba(241,243,239,.92); backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--line);
+    background: rgba(0,0,0,.88); backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--graphite);
   }
-  header .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
-  .brand { font-family: var(--display); font-size: 1.35rem; text-decoration: none; }
-  nav a { text-decoration: none; margin-left: 1.5rem; font-weight: 500; color: var(--ink-soft); }
-  nav a:hover { color: var(--ink); }
-  @media (max-width: 640px) { nav a:not(.btn) { display: none; } }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+  .brand { display: flex; align-items: center; gap: .7rem; text-decoration: none; }
+  .brand svg { width: 42px; height: auto; }
+  .brand-texto { display: flex; flex-direction: column; line-height: 1; }
+  .brand-texto b { font-weight: 900; font-size: 1.3rem; letter-spacing: .01em; }
+  .brand-texto small { font-weight: 500; font-size: .52rem; letter-spacing: .62em; margin-top: .3rem; color: var(--white); }
+  nav { display: flex; align-items: center; }
+  nav a { text-decoration: none; margin-left: 1.75rem; font-weight: 500; font-size: .92rem; color: var(--smoke); }
+  nav a:hover { color: var(--white); }
+  @media (max-width: 760px) { nav a:not(.btn) { display: none; } }
 
   .btn {
-    display: inline-block; padding: .8rem 1.35rem; border-radius: 4px;
-    background: var(--pine); color: var(--white); text-decoration: none;
-    font-weight: 700; border: 0; cursor: pointer;
+    display: inline-block; padding: .95rem 1.5rem;
+    background: var(--white); color: var(--black); text-decoration: none;
+    font-weight: 800; font-size: .95rem; border: 2px solid var(--white); cursor: pointer;
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
   }
-  .btn:hover { background: var(--pine-deep); }
-  .btn.ghost { background: transparent; color: var(--pine); border: 1.5px solid var(--pine); }
-  .btn.ghost:hover { background: rgba(36,92,67,.08); }
-  header nav .btn { padding: .55rem 1rem; margin-left: 1.5rem; }
+  .btn:hover { background: var(--black); color: var(--white); }
+  .btn.ghost { background: transparent; color: var(--white); clip-path: none; }
+  .btn.ghost:hover { background: var(--white); color: var(--black); }
+  header nav .btn { padding: .6rem 1.1rem; font-size: .85rem; }
 
-  /* Herói */
-  .hero { padding: clamp(3.5rem, 8vw, 7rem) 0 3rem; }
-  .hero h1 { font-size: clamp(2.6rem, 6vw, 4.8rem); max-width: 14ch; }
-  .hero p { margin-top: 1.5rem; max-width: 46ch; font-size: 1.15rem; color: var(--ink-soft); }
-  .hero .local { margin-top: .75rem; font-size: 1rem; color: var(--pine); font-weight: 500; }
+  /* ---------- Herói ---------- */
+  .hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--graphite); }
+  .hero .wrap { position: relative; padding: clamp(4rem, 10vw, 8rem) 0 clamp(3rem, 7vw, 5rem); }
+  .hero-montanha {
+    position: absolute; right: -6%; bottom: -4%; width: min(62vw, 760px);
+    color: var(--white); opacity: .07; pointer-events: none;
+  }
+  .hero-montanha polygon { fill: none; stroke: currentColor; stroke-width: 3; }
+  .hero h1 { font-size: clamp(2.9rem, 8.2vw, 6.6rem); max-width: 11ch; position: relative; }
+  .hero-sub { margin-top: 1.75rem; max-width: 44ch; font-size: 1.15rem; color: var(--smoke); position: relative; }
+  .hero-acoes { display: flex; gap: .9rem; flex-wrap: wrap; margin-top: 2.25rem; position: relative; }
 
-  /* Os dois públicos — o elemento principal da página */
-  .publicos { display: grid; grid-template-columns: 1fr 1fr; margin-top: 3.5rem; border: 1.5px solid var(--ink); }
-  .publico { padding: 2.25rem 2rem; }
-  .publico + .publico { border-left: 1.5px solid var(--ink); }
-  .publico.empresa { background: var(--pine-deep); color: var(--white); }
-  .publico h2 { font-size: 1.75rem; margin-bottom: 1rem; }
-  .publico ul { list-style: none; margin: 1.25rem 0 1.75rem; }
-  .publico li { padding: .55rem 0; border-top: 1px solid rgba(127,127,127,.35); }
-  .publico.empresa li { border-color: rgba(255,255,255,.22); }
-  .publico.empresa .btn { background: var(--brass); color: var(--ink); }
-  .publico.empresa .btn:hover { background: #d3a45a; }
+  /* Os três motivos, cada um uma montanha */
+  .motivos { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: clamp(3.5rem, 7vw, 5.5rem); border-top: 1px solid var(--graphite); position: relative; }
+  .motivo { padding: 1.75rem 1.75rem 0 0; }
+  .motivo + .motivo { padding-left: 1.75rem; border-left: 1px solid var(--graphite); }
+  .motivo svg { width: 34px; margin-bottom: 1rem; }
+  .motivo strong { display: block; font-weight: 800; font-size: 1.15rem; margin-bottom: .35rem; }
+  .motivo p { color: var(--smoke); font-size: .95rem; }
   @media (max-width: 760px) {
-    .publicos { grid-template-columns: 1fr; }
-    .publico + .publico { border-left: 0; border-top: 1.5px solid var(--ink); }
+    .motivos { grid-template-columns: 1fr; }
+    .motivo, .motivo + .motivo { padding: 1.5rem 0; border-left: 0; }
+    .motivo + .motivo { border-top: 1px solid var(--graphite); }
   }
 
-  /* Imóveis */
-  section { padding: clamp(3rem, 7vw, 5.5rem) 0; }
-  .intro { max-width: 52ch; color: var(--ink-soft); margin-top: .75rem; }
+  /* Animação única: a montanha se desenha ao abrir a página */
+  @media (prefers-reduced-motion: no-preference) {
+    .hero-montanha polygon { stroke-dasharray: 2600; stroke-dashoffset: 2600; animation: desenhar 2.4s cubic-bezier(.6,.1,.3,1) .2s forwards; }
+    .hero-montanha polygon:nth-child(2) { animation-delay: .45s; }
+    .hero-montanha polygon:nth-child(3) { animation-delay: .7s; }
+  }
+  @keyframes desenhar { to { stroke-dashoffset: 0; } }
+
+  /* ---------- Dois públicos: preto e branco, como a logo ---------- */
+  .publicos-sec { padding: clamp(3.5rem, 8vw, 6rem) 0; }
+  .publicos { display: grid; grid-template-columns: 1.1fr 1fr; }
+  .publico { padding: clamp(2rem, 4vw, 3.25rem); }
+  .publico h2 { font-size: clamp(1.9rem, 3.6vw, 2.8rem); margin-bottom: 1rem; }
+  .publico > p { max-width: 40ch; }
+  .publico ul { list-style: none; margin: 1.75rem 0 2rem; }
+  .publico li { padding: .7rem 0; border-top: 1px solid; font-weight: 500; }
+  .publico.empresa { background: var(--white); color: var(--black); }
+  .publico.empresa > p { color: #4A4A4A; }
+  .publico.empresa li { border-color: #D9D9D9; }
+  .publico.empresa .btn { background: var(--black); color: var(--white); border-color: var(--black); }
+  .publico.empresa .btn:hover { background: var(--white); color: var(--black); }
+  .publico.pessoal { border: 1px solid var(--graphite); border-left: 0; }
+  .publico.pessoal > p { color: var(--smoke); }
+  .publico.pessoal li { border-color: var(--graphite); }
+  @media (max-width: 860px) {
+    .publicos { grid-template-columns: 1fr; }
+    .publico.pessoal { border-left: 1px solid var(--graphite); border-top: 0; }
+  }
+
+  /* ---------- Imóveis ---------- */
+  section { padding: clamp(3.5rem, 8vw, 6rem) 0; }
+  .cabeca { display: flex; justify-content: space-between; align-items: end; gap: 2rem; flex-wrap: wrap; }
+  .intro { max-width: 50ch; color: var(--smoke); margin-top: 1rem; }
 
   .imovel {
-    display: grid; grid-template-columns: 1.15fr 1fr; gap: 2.5rem;
-    align-items: start; margin-top: 3.5rem; padding-top: 3.5rem; border-top: 1px solid var(--line);
+    display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(1.75rem, 4vw, 3.5rem);
+    align-items: center; margin-top: clamp(3rem, 6vw, 4.5rem);
   }
-  .imovel:first-of-type { border-top: 0; padding-top: 0; }
   .imovel:nth-child(even) .galeria { order: 2; }
-  .galeria img { width: 100%; aspect-ratio: 4/3; object-fit: cover; background: #DCE1DB; border-radius: 4px; }
+  .galeria { position: relative; }
+  .foto-principal { position: relative; }
+  .foto-principal img {
+    width: 100%; aspect-ratio: 4/5; max-height: 640px; object-fit: cover; background: var(--ash);
+    clip-path: polygon(0 0, calc(100% - 38px) 0, 100% 38px, 100% 100%, 38px 100%, 0 calc(100% - 38px));
+  }
+  .seta {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    width: 46px; height: 46px; border: 0; cursor: pointer;
+    background: rgba(0,0,0,.72); color: var(--white); font: 800 1.4rem/1 var(--font);
+    display: grid; place-items: center;
+  }
+  .seta:hover { background: var(--white); color: var(--black); }
+  .seta.ant { left: 0; }
+  .seta.prox { right: 0; }
+  .contador {
+    position: absolute; top: 0; left: 0; padding: .35rem .7rem;
+    background: var(--black); color: var(--white); font-weight: 700; font-size: .8rem;
+  }
+  .miniaturas { display: flex; gap: .5rem; margin-top: .6rem; overflow-x: auto; padding-bottom: .2rem; }
+  .miniaturas button {
+    flex: 0 0 72px; height: 72px; padding: 0; border: 2px solid transparent; background: var(--ash);
+    cursor: pointer; opacity: .5;
+  }
+  .miniaturas button:hover { opacity: .85; }
+  .miniaturas button[aria-current="true"] { border-color: var(--white); opacity: 1; }
+  .miniaturas img { width: 100%; height: 100%; object-fit: cover; }
+  .galeria .num {
+    position: absolute; left: -.08em; bottom: -.28em; font-weight: 900; line-height: 1; pointer-events: none;
+    font-size: clamp(4rem, 9vw, 7rem); color: var(--black);
+    -webkit-text-stroke: 2px var(--white); paint-order: stroke fill;
+  }
+  .imovel:nth-child(even) .galeria .num { left: auto; right: -.08em; }
 
-  .imovel .meta { color: var(--ink-soft); font-weight: 500; margin-bottom: .5rem; }
-  .imovel h3 { font-size: clamp(1.7rem, 3vw, 2.2rem); }
-  .imovel .resumo { margin-top: 1rem; color: var(--ink-soft); max-width: 44ch; }
-  .itens { display: grid; grid-template-columns: 1fr 1fr; gap: .35rem 1rem; margin: 1.5rem 0; list-style: none; }
-  .itens li::before { content: "✓ "; color: var(--pine); font-weight: 700; }
-  .preco { font-family: var(--display); font-size: 1.9rem; }
-  .preco small { font-family: var(--body); font-size: .95rem; color: var(--ink-soft); font-weight: 500; }
-  .acoes { display: flex; gap: .75rem; align-items: center; margin-top: 1.25rem; flex-wrap: wrap; }
-  @media (max-width: 760px) {
-    .imovel { grid-template-columns: 1fr; gap: 1.5rem; }
+  .imovel .meta { color: var(--smoke); font-weight: 500; font-size: .95rem; margin-bottom: .6rem; }
+  .imovel h3 { font-size: clamp(1.9rem, 3.4vw, 2.6rem); }
+  .imovel .resumo { margin-top: 1rem; color: var(--smoke); max-width: 46ch; }
+  .itens { display: grid; grid-template-columns: 1fr 1fr; gap: .45rem 1.25rem; margin: 1.5rem 0; list-style: none; font-size: .93rem; }
+  .itens li { padding-left: 1.2rem; position: relative; }
+  .itens li::before {
+    content: ""; position: absolute; left: 0; top: .5em; width: .6rem; height: .5rem; background: var(--white);
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  }
+  .preco { font-weight: 900; font-size: 2.2rem; line-height: 1.1; padding-top: 1.25rem; border-top: 1px solid var(--graphite); }
+  .preco small { font-size: .95rem; color: var(--smoke); font-weight: 500; }
+  .preco .consulte { display: block; font-weight: 800; font-size: 1.05rem; color: var(--white); }
+  .preco .consulte + small { display: block; margin-top: .2rem; }
+  .acoes { display: flex; gap: .75rem; align-items: center; margin-top: 1.5rem; flex-wrap: wrap; }
+  @media (max-width: 860px) {
+    .imovel { grid-template-columns: 1fr; }
     .imovel:nth-child(even) .galeria { order: 0; }
+    .imovel:nth-child(even) .galeria .num { right: auto; left: -.08em; }
+  }
+  @media (max-width: 480px) { .itens { grid-template-columns: 1fr; } }
+
+  /* ---------- Faixa: sem taxa ---------- */
+  .faixa { background: var(--white); color: var(--black); padding: clamp(2.5rem, 6vw, 4rem) 0; }
+  .faixa .wrap { display: grid; grid-template-columns: auto 1fr; gap: clamp(1.5rem, 4vw, 3.5rem); align-items: center; }
+  .faixa .grande { font-weight: 900; font-size: clamp(4rem, 13vw, 10rem); line-height: .85; letter-spacing: -0.04em; }
+  .faixa h2 { font-size: clamp(1.6rem, 3.4vw, 2.5rem); }
+  .faixa p { margin-top: .75rem; color: #4A4A4A; max-width: 48ch; }
+  @media (max-width: 640px) { .faixa .wrap { grid-template-columns: 1fr; } }
+
+  /* ---------- Como funciona (sequência real, por isso numerada) ---------- */
+  #como-funciona { border-bottom: 1px solid var(--graphite); }
+  .passos { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 3rem; counter-reset: passo; }
+  .passo { counter-increment: passo; padding: 0 1.5rem 0 0; }
+  .passo + .passo { padding-left: 1.5rem; border-left: 1px solid var(--graphite); }
+  .passo::before { content: counter(passo); font-weight: 900; font-size: 3rem; line-height: 1; display: block; margin-bottom: 1rem; color: var(--black); -webkit-text-stroke: 1.5px var(--white); }
+  .passo strong { display: block; font-weight: 800; margin-bottom: .4rem; }
+  .passo p { color: var(--smoke); font-size: .93rem; }
+  @media (max-width: 860px) {
+    .passos { grid-template-columns: 1fr 1fr; gap: 2.25rem 0; }
+    .passo:nth-child(3) { padding-left: 0; border-left: 0; }
+  }
+  @media (max-width: 480px) {
+    .passos { grid-template-columns: 1fr; }
+    .passo, .passo + .passo { padding: 0; border-left: 0; }
   }
 
-  /* Como funciona — é uma sequência, por isso numerada */
-  .passos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 2.5rem; counter-reset: passo; }
-  .passo { counter-increment: passo; border-top: 3px solid var(--pine); padding-top: 1rem; }
-  .passo::before { content: counter(passo) "."; font-family: var(--display); font-size: 1.6rem; color: var(--pine); display: block; }
-  .passo strong { display: block; margin: .25rem 0 .35rem; }
-  .passo p { color: var(--ink-soft); font-size: .95rem; }
-  @media (max-width: 760px) { .passos { grid-template-columns: 1fr 1fr; } }
+  /* ---------- Localização ---------- */
+  .localizacao { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4rem); align-items: start; }
+  .endereco { margin-top: 1rem; font-weight: 800; }
+  .perto { list-style: none; margin: 1.75rem 0 2rem; max-width: 28rem; }
+  .perto li { display: flex; justify-content: space-between; padding: .6rem 0; border-top: 1px solid var(--graphite); }
+  .perto li span:last-child { color: var(--smoke); font-weight: 600; }
+  .mapa { width: 100%; aspect-ratio: 4/3; border: 1px solid var(--graphite); background: var(--ash); filter: grayscale(1) invert(.92) contrast(.9); }
+  @media (max-width: 860px) { .localizacao { grid-template-columns: 1fr; } }
 
-  /* Localização */
-  .localizacao { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
-  .endereco { margin-top: .75rem; font-weight: 700; color: var(--pine); }
-  .perto { list-style: none; margin: 1.5rem 0 1.75rem; max-width: 26rem; }
-  .perto li { display: flex; justify-content: space-between; padding: .5rem 0; border-top: 1px solid var(--line); }
-  .perto li span:last-child { color: var(--ink-soft); }
-  .mapa { width: 100%; aspect-ratio: 4/3; border: 1.5px solid var(--line); border-radius: 4px; background: #DCE1DB; }
-  @media (max-width: 760px) { .localizacao { grid-template-columns: 1fr; } }
+  /* ---------- Contato ---------- */
+  .contato { border-top: 1px solid var(--graphite); text-align: center; position: relative; overflow: hidden; }
+  .contato .marca-grande { width: 120px; margin: 0 auto 2rem; }
+  .contato h2 { font-size: clamp(2.4rem, 6.5vw, 5rem); max-width: 14ch; margin-inline: auto; }
+  .contato p { margin: 1.25rem auto 0; color: var(--smoke); max-width: 46ch; }
+  .contato .btn { margin-top: 2.25rem; font-size: 1.05rem; padding: 1.1rem 2rem; }
+  .contato .numero { display: block; margin-top: 1rem; color: var(--smoke); font-weight: 600; letter-spacing: .02em; }
 
-  /* Contato */
-  .contato { background: var(--white); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-  .contato .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
-  .contato p { margin-top: 1rem; color: var(--ink-soft); max-width: 42ch; }
-  .canais { list-style: none; display: grid; gap: .75rem; }
-  .canais a { display: block; padding: 1rem 1.25rem; border: 1.5px solid var(--line); border-radius: 4px; text-decoration: none; font-weight: 500; }
-  .canais a:hover { border-color: var(--pine); }
-  .canais span { display: block; font-size: .85rem; color: var(--ink-soft); font-weight: 400; }
-  @media (max-width: 760px) { .contato .wrap { grid-template-columns: 1fr; } }
-
-  footer { padding: 2rem 0; color: var(--ink-soft); font-size: .9rem; }
+  footer { padding: 2rem 0; color: var(--smoke); font-size: .88rem; border-top: 1px solid var(--graphite); }
   footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: .5rem 1.5rem; }
-  footer a { color: var(--ink-soft); }
+  footer a { color: var(--white); }
 
   /* Botão flutuante do WhatsApp */
   .zap-flutuante {
     position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 20;
-    width: 56px; height: 56px; border-radius: 50%; background: #25D366;
-    display: grid; place-items: center; box-shadow: 0 6px 18px rgba(0,0,0,.18);
+    width: 58px; height: 58px; border-radius: 50%; background: var(--white);
+    display: grid; place-items: center; box-shadow: 0 0 0 1px var(--black), 0 8px 24px rgba(0,0,0,.6);
   }
-  .zap-flutuante svg { width: 30px; height: 30px; fill: #fff; }
+  .zap-flutuante svg { width: 30px; height: 30px; fill: var(--black); }
+  .zap-flutuante:hover { background: #25D366; }
+  .zap-flutuante:hover svg { fill: var(--white); }
 </style>
 </head>
 
 <body>
 
+<!-- Desenho da montanha da logo, reaproveitado em vários pontos -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <g id="montanhas">
+      <polygon points="252,675 540,242 606,345 577,390 540,330 340,630 420,630 391,675"/>
+      <polygon points="642,345 713,242 975,675 840,675 811,630 891,630 713,330 671,390"/>
+      <polygon points="420,675 624,373 812,675 575,675 632,596 645,618 638,630 727,630 624,456 482,675"/>
+    </g>
+  </defs>
+</svg>
+
 <header>
   <div class="wrap">
-    <a class="brand" href="#" data-nome></a>
+    <a class="brand" href="#" aria-label="ALPAG Reservas, voltar ao início">
+      <svg class="marca" viewBox="245 235 735 445" aria-hidden="true"><use href="#montanhas"/></svg>
+      <span class="brand-texto"><b>ALPAG</b><small>RESERVAS</small></span>
+    </a>
     <nav>
       <a href="#imoveis">Imóveis</a>
       <a href="#empresas">Para empresas</a>
@@ -222,12 +334,42 @@ const IMOVEIS = [
 
 <main>
 
-  <div class="hero wrap">
-    <h1>Hospedagem por diária em Campos Novos, sem a burocracia de hotel.</h1>
-    <p>Dois estúdios e uma casa completa no centro, a poucos minutos da BR-282 e da BR-470. Reserve direto pelo WhatsApp: sem taxa de plataforma e com resposta em até uma hora.</p>
-    <p class="local" data-cidade></p>
+  <div class="hero">
+    <svg class="hero-montanha" viewBox="245 235 735 445" aria-hidden="true">
+      <polygon points="252,675 540,242 606,345 577,390 540,330 340,630 420,630 391,675"/>
+      <polygon points="642,345 713,242 975,675 840,675 811,630 891,630 713,330 671,390"/>
+      <polygon points="420,675 624,373 812,675 575,675 632,596 645,618 638,630 727,630 624,456 482,675"/>
+    </svg>
+    <div class="wrap">
+      <h1>Diária boa não precisa ser cara.</h1>
+      <p class="hero-sub">Dois estúdios e uma casa completa no centro de <span data-cidade></span>. Você fala direto com o anfitrião e paga só a diária: sem taxa de plataforma e sem hotel.</p>
+      <div class="hero-acoes">
+        <a class="btn" data-zap data-msg="Olá! Quero saber o valor e a disponibilidade de uma diária.">Ver valor da diária</a>
+        <a class="btn ghost" href="#imoveis">Conhecer os imóveis</a>
+      </div>
 
-    <div class="publicos">
+      <div class="motivos">
+        <div class="motivo">
+          <svg class="marca" viewBox="245 235 735 445" aria-hidden="true"><use href="#montanhas"/></svg>
+          <strong>Preço de anfitrião</strong>
+          <p>Reservando pelo WhatsApp, a taxa que as plataformas cobram fica no seu bolso.</p>
+        </div>
+        <div class="motivo">
+          <svg class="marca" viewBox="245 235 735 445" aria-hidden="true"><use href="#montanhas"/></svg>
+          <strong>Nenhum imóvel igual</strong>
+          <p>Cada espaço foi montado de um jeito, para quem viaja sozinho, a dois ou em equipe.</p>
+        </div>
+        <div class="motivo">
+          <svg class="marca" viewBox="245 235 735 445" aria-hidden="true"><use href="#montanhas"/></svg>
+          <strong>Superhost no Airbnb</strong>
+          <p>Os mesmos imóveis bem avaliados de lá, com atendimento direto de quem cuida deles.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="publicos-sec">
+    <div class="wrap publicos">
       <div class="publico empresa" id="empresas">
         <h2>Para empresas</h2>
         <p>Colaboradores, técnicos e equipes em missão. Um contato só resolve a estadia inteira.</p>
@@ -239,7 +381,7 @@ const IMOVEIS = [
         </ul>
         <a class="btn" data-zap data-msg="Olá! Sou de uma empresa e quero um orçamento para hospedagem de colaboradores.">Pedir orçamento corporativo</a>
       </div>
-      <div class="publico">
+      <div class="publico pessoal">
         <h2>Para você</h2>
         <p>Viagem a dois, visita à família ou fim de semana fora. Sem taxa de limpeza escondida.</p>
         <ul>
@@ -255,11 +397,25 @@ const IMOVEIS = [
 
   <section id="imoveis">
     <div class="wrap">
-      <h2>Os imóveis</h2>
-      <p class="intro">Todos no centro de Campos Novos, com estacionamento, Wi-Fi e roupa de cama e banho incluídas. Peça um orçamento para períodos mais longos.</p>
+      <div class="cabeca">
+        <div>
+          <h2>Os imóveis</h2>
+          <p class="intro">Todos no centro de Campos Novos, com estacionamento, Wi-Fi e roupa de cama e banho incluídas. Peça um orçamento para períodos mais longos.</p>
+        </div>
+      </div>
       <div id="lista-imoveis"></div>
     </div>
   </section>
+
+  <div class="faixa">
+    <div class="wrap">
+      <span class="grande" aria-hidden="true">0%</span>
+      <div>
+        <h2>Zero taxa de plataforma na reserva direta.</h2>
+        <p>Nas plataformas, parte do que você paga fica com o intermediário. Aqui você combina com o anfitrião e paga só pela estadia.</p>
+      </div>
+    </div>
+  </div>
 
   <section id="como-funciona">
     <div class="wrap">
@@ -276,7 +432,7 @@ const IMOVEIS = [
   <section id="localizacao">
     <div class="wrap localizacao">
       <div>
-        <h2>Onde ficam os imóveis</h2>
+        <h2>Onde ficam</h2>
         <p class="endereco" data-endereco></p>
         <p class="intro">No Centro de Campos Novos, perto de todas as oportunidades e facilidades da cidade. Você resolve tudo a pé e, quando precisa sair, as rodovias estão a poucos minutos.</p>
         <ul class="perto">
@@ -296,13 +452,11 @@ const IMOVEIS = [
 
   <section class="contato" id="contato">
     <div class="wrap">
-      <div>
-        <h2>Fale com a gente</h2>
-        <p>Mande as datas e o número de hóspedes pelo WhatsApp. Respondemos no mesmo dia, com valor total e forma de pagamento.</p>
-      </div>
-      <ul class="canais">
-        <li><a data-zap>WhatsApp<span data-zap-numero></span><span>Resposta em até 1 hora</span></a></li>
-      </ul>
+      <svg class="marca marca-grande" viewBox="245 235 735 445" aria-hidden="true"><use href="#montanhas"/></svg>
+      <h2>Mande as datas. A gente manda o preço.</h2>
+      <p>Diga quantas pessoas vão ficar e em quais dias. Respondemos pelo WhatsApp com o valor total e a forma de pagamento.</p>
+      <a class="btn" data-zap>Pedir valor no WhatsApp</a>
+      <span class="numero" data-zap-numero></span>
     </div>
   </section>
 
@@ -310,7 +464,7 @@ const IMOVEIS = [
 
 <footer>
   <div class="wrap">
-    <span><span data-nome></span> · <span data-cidade></span></span>
+    <span><span data-nome></span>, <span data-cidade></span></span>
     <span class="plataformas">Também estamos no <a data-airbnb target="_blank" rel="noopener">Airbnb</a><span data-booking-wrap> e na <a data-booking target="_blank" rel="noopener">Booking</a></span>.</span>
     <span>© <span id="ano"></span></span>
   </div>
@@ -341,25 +495,62 @@ const IMOVEIS = [
 
   // Gera um bloco para cada imóvel da lista
   const lista = document.getElementById("lista-imoveis");
-  IMOVEIS.forEach(im => {
+  IMOVEIS.forEach((im, i) => {
     const el = document.createElement("article");
     el.className = "imovel";
     el.innerHTML = `
       <div class="galeria">
-        <img src="${im.foto}" alt="${im.nome}" loading="lazy">
+        <div class="foto-principal">
+          <img src="${im.fotos[0]}" alt="${im.nome}, foto 1" loading="lazy">
+          ${im.fotos.length > 1 ? `
+            <span class="contador">1 / ${im.fotos.length}</span>
+            <button class="seta ant" type="button" aria-label="Foto anterior">‹</button>
+            <button class="seta prox" type="button" aria-label="Próxima foto">›</button>` : ""}
+          <span class="num" aria-hidden="true">${String(i + 1).padStart(2, "0")}</span>
+        </div>
+        ${im.fotos.length > 1 ? `<div class="miniaturas">${im.fotos.map((f, n) =>
+          `<button type="button" aria-label="Ver foto ${n + 1}" aria-current="${n === 0}"><img src="${f}" alt="" loading="lazy"></button>`).join("")}</div>` : ""}
       </div>
       <div>
-        <p class="meta">${im.tipo} · até ${im.hospedes} hóspedes · ${im.quartos}</p>
+        <p class="meta">${im.tipo}, até ${im.hospedes} hóspedes, ${im.quartos}</p>
         <h3>${im.nome}</h3>
         <p class="resumo">${im.resumo}</p>
-        <ul class="itens">${im.itens.map(i => `<li>${i}</li>`).join("")}</ul>
-        <p class="preco">${im.preco ? `R$ ${im.preco} <small>por diária</small>` : `<small>Consulte valores pelo WhatsApp</small>`}</p>
+        <ul class="itens">${im.itens.map(t => `<li>${t}</li>`).join("")}</ul>
+        <p class="preco">${im.preco
+          ? `R$ ${im.preco} <small>por diária, sem taxa de plataforma</small>`
+          : `<span class="consulte">Preço direto, sem taxa de plataforma</span><small>Consulte o valor da diária pelo WhatsApp</small>`}</p>
         <div class="acoes">
           <a class="btn" data-zap data-msg="Olá! Quero reservar o ${im.nome}. Poderia me passar a disponibilidade?">Reservar pelo WhatsApp</a>
           <a class="btn ghost" data-zap data-msg="Olá! Sou de uma empresa e quero um orçamento para o ${im.nome} em estadia longa.">Orçamento para empresa</a>
         </div>
       </div>`;
     lista.appendChild(el);
+
+    // Galeria: setas, miniaturas e deslizar o dedo no celular
+    if (im.fotos.length > 1) {
+      const principal = el.querySelector(".foto-principal img");
+      const contador = el.querySelector(".contador");
+      const minis = el.querySelectorAll(".miniaturas button");
+      let atual = 0;
+      const mostrar = n => {
+        atual = (n + im.fotos.length) % im.fotos.length;
+        principal.src = im.fotos[atual];
+        principal.alt = `${im.nome}, foto ${atual + 1}`;
+        contador.textContent = `${atual + 1} / ${im.fotos.length}`;
+        minis.forEach((b, k) => b.setAttribute("aria-current", k === atual));
+      };
+      el.querySelector(".seta.ant").onclick = () => mostrar(atual - 1);
+      el.querySelector(".seta.prox").onclick = () => mostrar(atual + 1);
+      minis.forEach((b, k) => b.onclick = () => mostrar(k));
+      let x0 = null;
+      principal.addEventListener("touchstart", e => x0 = e.touches[0].clientX, { passive: true });
+      principal.addEventListener("touchend", e => {
+        if (x0 === null) return;
+        const dx = e.changedTouches[0].clientX - x0;
+        if (Math.abs(dx) > 40) mostrar(atual + (dx < 0 ? 1 : -1));
+        x0 = null;
+      });
+    }
   });
 
   // Ativa todos os botões de WhatsApp (inclusive os gerados acima)
