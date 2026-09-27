@@ -1,0 +1,188 @@
+/* Estilo das páginas internas da ALPAG Reservas (mesmo visual da página inicial) */
+:root {
+  --black: #000000;
+  --white: #FFFFFF;
+  --smoke: #A6A6A6;
+  --graphite: #2A2A2A;
+  --ash: #141414;
+  --font: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  --chanfro: polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 22px 100%, 0 calc(100% - 22px));
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  font-family: var(--font); color: var(--white); background: var(--black);
+  line-height: 1.65; font-size: 1rem; -webkit-font-smoothing: antialiased;
+}
+img { display: block; max-width: 100%; }
+a { color: inherit; }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid var(--white); outline-offset: 4px; }
+.wrap { width: min(1180px, 100% - 2.5rem); margin-inline: auto; }
+h1, h2, h3 { font-weight: 900; line-height: 1.02; letter-spacing: -0.02em; }
+h2 { font-size: clamp(2rem, 4.6vw, 3.4rem); }
+.marca { fill: currentColor; }
+
+/* Cabeçalho */
+header {
+  position: sticky; top: 0; z-index: 10;
+  background: rgba(0,0,0,.88); backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--graphite);
+}
+header .wrap { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+.brand { display: flex; align-items: center; gap: .7rem; text-decoration: none; }
+.brand svg { width: 42px; height: auto; }
+.brand-texto { display: flex; flex-direction: column; line-height: 1; }
+.brand-texto b { font-weight: 900; font-size: 1.3rem; letter-spacing: .01em; }
+.brand-texto small { font-weight: 500; font-size: .52rem; letter-spacing: .62em; margin-top: .3rem; }
+header nav a { text-decoration: none; margin-left: 1.75rem; font-weight: 500; font-size: .92rem; color: var(--smoke); }
+header nav a:hover, header nav a[aria-current="page"] { color: var(--white); }
+@media (max-width: 760px) { header nav a:not(.btn) { display: none; } }
+
+.btn {
+  display: inline-block; padding: .95rem 1.5rem;
+  background: var(--white); color: var(--black); text-decoration: none;
+  font-weight: 800; font-size: .95rem; border: 2px solid var(--white); cursor: pointer;
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+}
+.btn:hover { background: var(--black); color: var(--white); }
+.btn.ghost { background: transparent; color: var(--white); clip-path: none; }
+.btn.ghost:hover { background: var(--white); color: var(--black); }
+header nav .btn { padding: .6rem 1.1rem; font-size: .85rem; white-space: nowrap; }
+
+/* Trilha de navegação */
+.migalhas { padding-top: 1.75rem; font-size: .85rem; color: var(--smoke); }
+.migalhas ol { list-style: none; display: flex; flex-wrap: wrap; gap: .35rem; }
+.migalhas li + li::before { content: "/"; margin-right: .35rem; color: var(--graphite); }
+.migalhas a { text-decoration: none; }
+.migalhas a:hover { color: var(--white); }
+
+/* Topo das páginas */
+.topo { padding: clamp(2rem, 5vw, 3.5rem) 0 clamp(2.5rem, 6vw, 4rem); }
+.topo-grade { display: grid; grid-template-columns: 1.25fr 1fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: end; }
+.topo .meta { color: var(--smoke); font-weight: 600; font-size: .95rem; margin-bottom: 1rem; }
+.topo h1 { font-size: clamp(2.4rem, 6vw, 4.6rem); max-width: 16ch; }
+.topo .lead { margin-top: 1.5rem; color: var(--smoke); font-size: 1.1rem; max-width: 48ch; }
+.topo .lead + .lead { margin-top: .9rem; }
+.acoes { display: flex; gap: .75rem; flex-wrap: wrap; margin-top: 2rem; }
+@media (max-width: 860px) { .topo-grade { grid-template-columns: 1fr; } }
+
+/* Ficha técnica */
+.ficha { border-top: 1px solid var(--graphite); }
+.ficha div { display: grid; grid-template-columns: 9rem 1fr; gap: 1rem; padding: .85rem 0; border-bottom: 1px solid var(--graphite); }
+.ficha dt { color: var(--smoke); font-size: .9rem; font-weight: 500; }
+.ficha dd { font-weight: 700; }
+.ficha .preco-nota { display: block; font-weight: 500; font-size: .85rem; color: var(--smoke); }
+
+/* Tira de fotos: as fotos são verticais, então correm lado a lado */
+.tira-sec { border-top: 1px solid var(--graphite); border-bottom: 1px solid var(--graphite); padding: 1.25rem 0; }
+.tira {
+  display: flex; gap: .9rem; overflow-x: auto; scroll-snap-type: x mandatory;
+  padding: 0 max(1.25rem, calc((100% - 1180px) / 2));
+  scroll-padding-inline: max(1.25rem, calc((100% - 1180px) / 2)); scrollbar-width: thin; scrollbar-color: var(--graphite) transparent;
+}
+.tira figure { flex: 0 0 auto; scroll-snap-align: start; }
+.tira img {
+  height: clamp(340px, 62vh, 580px); width: auto; aspect-ratio: 3 / 4; object-fit: cover; background: var(--ash);
+  clip-path: var(--chanfro);
+}
+.tira figcaption { margin-top: .5rem; font-size: .82rem; color: var(--smoke); }
+.tira-dica { width: min(1180px, 100% - 2.5rem); margin: .75rem auto 0; font-size: .82rem; color: var(--smoke); }
+
+/* Seções */
+section { padding: clamp(3rem, 7vw, 5rem) 0; }
+section + section { border-top: 1px solid var(--graphite); }
+.intro { max-width: 58ch; color: var(--smoke); margin-top: 1rem; }
+.duas { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4rem); align-items: start; }
+@media (max-width: 860px) { .duas { grid-template-columns: 1fr; } }
+.texto p { color: var(--smoke); max-width: 56ch; }
+.texto p + p { margin-top: 1rem; }
+.texto h2 + p { margin-top: 1.25rem; }
+
+.itens { display: grid; grid-template-columns: 1fr 1fr; gap: .6rem 1.5rem; margin-top: 1.75rem; list-style: none; }
+.itens li { padding-left: 1.3rem; position: relative; }
+.itens li::before {
+  content: ""; position: absolute; left: 0; top: .52em; width: .65rem; height: .55rem; background: var(--white);
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+@media (max-width: 520px) { .itens { grid-template-columns: 1fr; } }
+
+.perto { list-style: none; margin: 1.5rem 0 2rem; max-width: 28rem; }
+.perto li { display: flex; justify-content: space-between; padding: .6rem 0; border-top: 1px solid var(--graphite); }
+.perto li span:last-child { color: var(--smoke); font-weight: 600; }
+
+/* Bloco branco, como o de empresas na página inicial */
+.claro { background: var(--white); color: var(--black); }
+.claro .texto p, .claro .intro { color: #4A4A4A; }
+.claro .itens li::before { background: var(--black); }
+.claro .btn { background: var(--black); color: var(--white); border-color: var(--black); }
+.claro .btn:hover { background: var(--white); color: var(--black); }
+section.claro + section { border-top: 0; }
+
+/* Passos da reserva: é uma sequência real, por isso numerada */
+.passos { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 2.5rem; counter-reset: passo; }
+.passo { counter-increment: passo; padding: 0 1.5rem 0 0; }
+.passo + .passo { padding-left: 1.5rem; border-left: 1px solid var(--graphite); }
+.passo::before { content: counter(passo); font-weight: 900; font-size: 3rem; line-height: 1; display: block; margin-bottom: 1rem; color: var(--black); -webkit-text-stroke: 1.5px var(--white); }
+.passo strong { display: block; font-weight: 800; margin-bottom: .4rem; }
+.passo p { color: var(--smoke); font-size: .93rem; }
+@media (max-width: 860px) { .passos { grid-template-columns: 1fr 1fr; gap: 2.25rem 0; } .passo:nth-child(3) { padding-left: 0; border-left: 0; } }
+@media (max-width: 480px) { .passos { grid-template-columns: 1fr; } .passo, .passo + .passo { padding: 0; border-left: 0; } }
+
+/* Tabela de comparação (empresas) */
+.tabela-rolagem { overflow-x: auto; margin-top: 2rem; }
+table { border-collapse: collapse; width: 100%; min-width: 640px; }
+th, td { text-align: left; padding: .9rem 1rem .9rem 0; border-bottom: 1px solid var(--graphite); vertical-align: top; }
+thead th { color: var(--smoke); font-weight: 600; font-size: .85rem; }
+tbody th { font-weight: 800; }
+tbody th a { text-decoration: none; border-bottom: 2px solid var(--graphite); }
+tbody th a:hover { border-color: var(--white); }
+td { color: var(--smoke); }
+
+/* Perguntas frequentes */
+.faq { margin-top: 2rem; border-top: 1px solid var(--graphite); max-width: 60rem; }
+.faq details { border-bottom: 1px solid var(--graphite); }
+.faq summary {
+  cursor: pointer; list-style: none; padding: 1.15rem 2.5rem 1.15rem 0; font-weight: 700; font-size: 1.05rem; position: relative;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: ""; position: absolute; right: .4rem; top: 50%; width: .8rem; height: .7rem; background: var(--white);
+  clip-path: polygon(50% 0, 100% 100%, 0 100%); transform: translateY(-50%) rotate(180deg); transition: transform .2s ease;
+}
+.faq details[open] summary::after { transform: translateY(-50%) rotate(0deg); }
+@media (prefers-reduced-motion: reduce) { .faq summary::after { transition: none; } }
+.faq details p { color: var(--smoke); padding: 0 0 1.25rem; max-width: 62ch; }
+
+/* Outros imóveis */
+.outros { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 2.25rem; }
+.outro { text-decoration: none; display: block; }
+.outro img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; background: var(--ash); clip-path: var(--chanfro); }
+.outro strong { display: block; font-weight: 800; font-size: 1.2rem; margin-top: .9rem; }
+.outro span { color: var(--smoke); font-size: .92rem; }
+.outro:hover strong { text-decoration: underline; text-underline-offset: 4px; }
+
+/* Contato */
+.contato { text-align: center; }
+.contato .marca-grande { width: 110px; margin: 0 auto 2rem; }
+.contato h2 { font-size: clamp(2.2rem, 6vw, 4.4rem); max-width: 14ch; margin-inline: auto; }
+.contato p { margin: 1.25rem auto 0; color: var(--smoke); max-width: 46ch; }
+.contato .btn { margin-top: 2.25rem; font-size: 1.05rem; padding: 1.1rem 2rem; }
+.contato .numero { display: block; margin-top: 1rem; color: var(--smoke); font-weight: 600; }
+
+/* Rodapé */
+footer { padding: 2.5rem 0 2rem; color: var(--smoke); font-size: .88rem; border-top: 1px solid var(--graphite); }
+footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1.25rem 2rem; }
+footer ul { list-style: none; display: flex; flex-wrap: wrap; gap: .4rem 1.5rem; }
+footer a { color: var(--white); }
+
+/* Botão flutuante do WhatsApp */
+.zap-flutuante {
+  position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 20;
+  width: 58px; height: 58px; border-radius: 50%; background: var(--white);
+  display: grid; place-items: center; box-shadow: 0 0 0 1px var(--black), 0 8px 24px rgba(0,0,0,.6);
+}
+.zap-flutuante svg { width: 30px; height: 30px; fill: var(--black); }
+.zap-flutuante:hover { background: #25D366; }
+.zap-flutuante:hover svg { fill: var(--white); }

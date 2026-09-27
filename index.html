@@ -72,6 +72,7 @@ const CONFIG = {
 const IMOVEIS = [
   {
     nome: "Casa Planejada no Centro",
+    pagina: "casa-centro",
     tipo: "Casa inteira",
     hospedes: 5,
     quartos: "2 quartos, 1 banheiro",
@@ -83,6 +84,7 @@ const IMOVEIS = [
   },
   {
     nome: "Estúdio 01 no Centro",
+    pagina: "estudio-01",
     tipo: "Estúdio",
     hospedes: 3,
     quartos: "1 cama queen, 1 banheiro",
@@ -94,6 +96,7 @@ const IMOVEIS = [
   },
   {
     nome: "Estúdio 02 no Centro",
+    pagina: "estudio-02",
     tipo: "Estúdio",
     hospedes: 4,
     quartos: "2 camas de solteiro, 1 banheiro",
@@ -345,6 +348,11 @@ const IMOVEIS = [
   footer { padding: 2rem 0; color: var(--smoke); font-size: .88rem; border-top: 1px solid var(--graphite); }
   footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: .5rem 1.5rem; }
   footer a { color: var(--white); }
+  footer .paginas { list-style: none; display: flex; flex-wrap: wrap; gap: .4rem 1.5rem; width: 100%; }
+  .titulo-link { text-decoration: none; }
+  .titulo-link:hover { text-decoration: underline; text-underline-offset: 6px; }
+  .ver-mais { margin-top: 1rem; font-weight: 700; font-size: .95rem; }
+  .ver-mais a { text-underline-offset: 4px; }
 
   /* Botão flutuante do WhatsApp */
   .zap-flutuante {
@@ -379,7 +387,7 @@ const IMOVEIS = [
     </a>
     <nav>
       <a href="#imoveis">Imóveis</a>
-      <a href="#empresas">Para empresas</a>
+      <a href="/empresas">Para empresas</a>
       <a href="#como-funciona">Como funciona</a>
       <a href="#localizacao">Localização</a>
       <a class="btn" data-zap>Falar no WhatsApp</a>
@@ -442,6 +450,7 @@ const IMOVEIS = [
           <li>Roupa de cama, banho e itens de higiene inclusos</li>
         </ul>
         <a class="btn" data-zap data-msg="Olá! Sou de uma empresa e quero um orçamento para hospedagem de colaboradores.">Pedir orçamento corporativo</a>
+        <p class="ver-mais"><a href="/empresas">Ver tudo sobre hospedagem para empresas</a></p>
       </div>
       <div class="publico pessoal">
         <h2>Para você</h2>
@@ -531,6 +540,12 @@ const IMOVEIS = [
     <span><span data-nome></span>, <span data-cidade></span></span>
     <span class="plataformas">Também estamos no <a data-airbnb target="_blank" rel="noopener">Airbnb</a><span data-booking-wrap> e na <a data-booking target="_blank" rel="noopener">Booking</a></span>.</span>
     <span>© <span id="ano"></span></span>
+    <ul class="paginas">
+      <li><a href="/casa-centro">Casa Planejada no Centro</a></li>
+      <li><a href="/estudio-01">Estúdio 01 no Centro</a></li>
+      <li><a href="/estudio-02">Estúdio 02 no Centro</a></li>
+      <li><a href="/empresas">Hospedagem para empresas</a></li>
+    </ul>
   </div>
 </footer>
 
@@ -578,8 +593,9 @@ const IMOVEIS = [
       </div>
       <div>
         <p class="meta">${im.tipo}, até ${im.hospedes} hóspedes, ${im.quartos}</p>
-        <h3>${im.nome}</h3>
+        <h3><a class="titulo-link" href="/${im.pagina}">${im.nome}</a></h3>
         <p class="resumo">${im.resumo}</p>
+        <p class="ver-mais"><a href="/${im.pagina}">Ver todas as fotos e detalhes</a></p>
         <ul class="itens">${im.itens.map(t => `<li>${t}</li>`).join("")}</ul>
         <p class="preco">${im.preco
           ? `R$ ${im.preco} <small>por diária, sem taxa de plataforma</small>`
